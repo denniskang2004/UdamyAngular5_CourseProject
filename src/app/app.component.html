@@ -1,16 +1,19 @@
-<app-header></app-header>
+<!--dknote 77: get flag from app-header, call fun to set local variable flags-->
+<app-header
+  (selectedFeature)="onSelectFeature($event)"
+></app-header>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-recipes></app-recipes>
-      <app-shopping-list></app-shopping-list>
-
+      <!--dknote 77: set visibility by the flags -->
+      <app-recipes *ngIf="featureSelected==='recipe'"></app-recipes>
+      <app-shopping-list *ngIf="featureSelected==='shopping-list'"></app-shopping-list>
+      <app-servers *ngIf="featureSelected==='demo'"></app-servers> <!--//: demo the basic-->
     </div>
   </div>
 
-  <h1>Course Concepts Demo Below</h1>
   <div class="row">
-    <app-servers></app-servers> <!--//: demo the basic-->
+
   </div>
 </div>
 

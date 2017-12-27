@@ -8,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  // dknote 77: route thru ngIf
+  // 1. header click event
+  featureSelected:string;
+
+  onSelectFeature(feature:string){
+    this.featureSelected = feature;
+  }
 }
