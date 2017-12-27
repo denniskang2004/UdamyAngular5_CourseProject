@@ -11,3 +11,4 @@ Parent component Pass data to component thru Custom Property
 1. child component define property using @Input()
 2. parent html using property [] to bind
 
+git command: git push -u origin master
