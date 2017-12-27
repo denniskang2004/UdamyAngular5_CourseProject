@@ -1,0 +1,21 @@
+
+
+<script src="../servers/servers.component.ts"></script>
+<p> The Server Component {{serverInput}} Alias: {{Name}}</p> <!--dknote 61: @Input -->
+
+<p [ngStyle]="{backgroundColor: getColor()}">
+  ID: {{serverId}}, status:{{serverStatus}}, status:{{getServerStatus()}}</p>
+
+<!--dknote 36: ngClass example-->
+<p [ngClass]="{online: serverStatus === 'online'}">
+  ID: {{serverId}}, status:{{serverStatus}}, status:{{getServerStatus()}}</p>
+
+<button *ngIf="showButton" class="btn btn-primary" (click) = "ClickMe()">
+  Click Me!
+</button>
+
+<!-- dknote 70: project content to component element using ng-content -->
+<div *ngIf="showNgContent">
+  <h3>this is the projected element below</h3>
+  <ng-content></ng-content>
+</div>

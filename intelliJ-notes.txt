@@ -1,0 +1,13 @@
+
+
+Ctrl+shift+N: find a file
+
+Ctrl+shift+F: find a key word (optional: regular expression)
+
+Alt + F12: show terminal window
+
+
+Parent component Pass data to component thru Custom Property
+1. child component define property using @Input()
+2. parent html using property [] to bind
+

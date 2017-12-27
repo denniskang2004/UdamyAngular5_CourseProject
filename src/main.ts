@@ -8,5 +8,6 @@ if (environment.production) {
   enableProdMode();
 }
 
+//dknote: lecture 13: main.ts --> bootstrap app.Module--> find appComponent
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.log(err));

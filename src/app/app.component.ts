@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
+// dknote: this is the root component (rootcomponent)
 @Component({
-  selector: 'app-root',
+  selector: 'app-root', // dknote: angular used to replace in index.html
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'] // dknote: 20
 })
 export class AppComponent {
   title = 'app';

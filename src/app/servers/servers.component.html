@@ -1,0 +1,90 @@
+<!-- <app-server></app-server> -->
+<!-- <app-server></app-server> -->
+
+<!--dknote 24: property binding using [], change property based on business logic-->
+<!--dknote 26: how to bind event using ()-->
+<script src="servers.component.ts"></script>
+<button class="btn btn-primary"
+        [disabled]="!allowNewServer"
+        (click)="onCreateServer()"
+>Add Server
+</button>
+Server create status: {{serverCreationStatus}}
+<hr/>
+<hr/>
+
+
+<!--dknote 28: how to retrieve event data using ($event)-->
+User Input: <input type="text" class="form-control"
+                   (input)="onInput($event)"
+>
+<p>{{userInput}}</p>
+<hr/>
+
+<!--dknote 29: two way biding using [(ngModel)] directly to bind to a variable in component class-->
+User Input: <input type="text" class="form-control"
+                   [(ngModel)]='serverName'
+>
+Server Name (2-way binding): {{serverName}}
+<br/>
+
+<!-- dknote 33: *ngIf-->
+<div *ngIf="serverCreated">Server Name (with *ngIf): {{serverName}}</div>
+
+<hr/>
+<hr/>
+
+<!-- dknote 35: ngStyle -->
+<!-- use component as attribute: not recommended: <div app-server></div>-->
+<!--<div app-server></div>-->
+<app-server></app-server>
+<app-server></app-server>
+
+<!--dknote 37: *ngFor-->
+<h1>show ngFor results below:</h1>
+<app-server *ngFor="let s of servers"></app-server>
+
+<!--dknote 38: index-->
+<div *ngFor="let s of servers; let i = index"
+     [ngStyle]="{backgroundColor:i>2?'blue':'red'}"
+>div content here
+</div>
+
+<!-- dknote 61: use @Input for custom property-->
+<h1>use @Input for custom property</h1>
+<div *ngFor="let s of servers">
+  <app-server [serverInput]="s"></app-server>
+</div>
+
+<!-- dknote 62: use @Input alias for custom property-->
+<h1>use @Input ALIAS for custom property</h1>
+<div *ngFor="let s of servers">
+  <app-server [srvNm]="s"></app-server>
+</div>
+
+<!-- dknote 63: use @Output: trigger custom event "myNewName" -> call parentClick passing value by $event -->
+<h1>use @Output </h1>
+<div>
+  <app-server
+    (newName)="parentClick($event)"
+    [showButton]="true"
+  ></app-server>
+  Parent got result from children: {{serverNewName}}
+</div>
+
+<!--dknote 68: local reference in template , template only-->
+<h1>use local reference in template </h1>
+Local Input:<input type="text" class="form-control" #localInput>
+<button class="btn btn-primary" (click)="getLocal(localInput)">add local</button>
+<div>{{localInputValue}}</div>
+
+<!-- dknote 70: project content to component element using ng-content -->
+
+<app-server showNgContent='true'>
+  <p #myContent> <!--dknote 74: -->
+    parent content here
+  </p>
+
+</app-server >
+
+<br><br><br><br>
