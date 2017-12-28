@@ -1,4 +1,6 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {appLogging} from '../server/service/logging.service';
+import {log} from 'util';
 
 
 // dknote: 19:  use template instead of templateUrl, use back tick "`" for multiple line
@@ -9,7 +11,8 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
   // template:`<div app-server></div> //inline template
   // <hr/>
   // <div app-server></div>`,
-  styleUrls: ['./servers.component.css']
+  styleUrls: ['./servers.component.css'],
+  providers:[appLogging] // dknote 97: notify angular about service
 })
 export class ServersComponent implements OnInit{
   allowNewServer = false;
@@ -26,7 +29,9 @@ export class ServersComponent implements OnInit{
   ngOnInit(){
     this.random = Math.random();
   }
-  constructor() {
+
+  // dknote 97: inject service
+  constructor(private loggingService:appLogging) {
     console.log('servers constructor called');
     // setTimeout(function abc(){
     //   this.allowNewServer = true;
@@ -40,6 +45,7 @@ export class ServersComponent implements OnInit{
 
     this.allowNewServer = true;
     this.serverName = 'Name initially';
+    loggingService.logStatus('Name initially');
   }
 
   onCreateServer() {
