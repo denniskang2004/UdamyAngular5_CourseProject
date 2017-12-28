@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 
 // dknote: 19:  use template instead of templateUrl, use back tick "`" for multiple line
@@ -11,7 +11,7 @@ import {Component} from '@angular/core';
   // <div app-server></div>`,
   styleUrls: ['./servers.component.css']
 })
-export class ServersComponent {
+export class ServersComponent implements OnInit{
   allowNewServer = false;
   serverCreationStatus = 'Server not created!';
   userInput = '';
@@ -20,7 +20,11 @@ export class ServersComponent {
   servers = ['S1', 'S2'];
   serverNewName = '';
   localInputValue = '';
+  random = 0;
 
+  ngOnInit(){
+    this.random = Math.random();
+  }
   constructor() {
     console.log('servers constructor called');
     // setTimeout(function abc(){

@@ -100,4 +100,9 @@ Local Input:<input type="text" class="form-control" #localInput>
 
 <!--dknote 88:  use the input-->
 <h3 appResponsiveHighlight [defaultColor]="'yellow'" [hightlightColor]="'red'">87: this is the use of custom directive</h3>
+
+<!--dknote 91: custom structure/structural directive-->
+<h3 *appUnless="random>0.5">custom structure directive when random<=0.5</h3>
+<h3 *appUnless="random<=0.5">custom structure directive when random>0.5</h3>
+random = {{random}}
 <br><br><br><br>
