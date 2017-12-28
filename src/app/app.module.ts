@@ -47,7 +47,11 @@ import {AbcComponent} from './servers/abc.component';
     FormsModule
   ],
   // dknote 101: add to appModule to make available to whole app, even to service
-  providers: [AccountService,appLogging],
+  providers: [
+    AccountService,//demo only
+    appLogging, //demo only
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
