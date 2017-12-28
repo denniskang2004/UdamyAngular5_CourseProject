@@ -71,7 +71,7 @@ export class ServersComponent implements OnInit{
   // dknote 68: local template reference
   getLocal(input: any) {
     this.localInputValue = input.value;
-    this.accountService.addAccount('servers GetLocal:'+input);
+    this.accountService.addAccount(input);
   }
 
 

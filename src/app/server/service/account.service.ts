@@ -1,17 +1,19 @@
 import {appLogging} from './logging.service';
-import {Injectable} from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 
 
 @Injectable() // dknote 101: this enable angular to inject appLogging service
 export class AccountService{
   accounts:string[] =[];
+  accountEvent = new EventEmitter<string>();
 
   constructor(private logger:appLogging){
 
   }
-  addAccount(accName:string){
-    this.accounts.push(accName);
+  addAccount(accName:HTMLInputElement){
+    this.accounts.push(accName.value);
     this.logger.logStatus('AddAccount:'+accName);
+    this.accountEvent.emit(accName.value);//dknote 102: cross component communication by event
   }
 
   getAccount(index:number){
@@ -20,7 +22,6 @@ export class AccountService{
       return this.accounts[index];
     else
       return "N/A";
-
-
   }
+
 }

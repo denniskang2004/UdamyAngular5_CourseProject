@@ -20,6 +20,7 @@ import { UnlessDirective } from './server/directive/unless.directive';
 import {AppDropdownDirective} from './shared/app-dropdown.directive';
 import {AccountService} from './server/service/account.service';
 import {appLogging} from './server/service/logging.service';
+import {AbcComponent} from './servers/abc.component';
 
 // dknote: 15.2: register new component here (demo in lecture 16)
 @NgModule({
@@ -38,7 +39,8 @@ import {appLogging} from './server/service/logging.service';
     BetterHightlightDirective,
     ResponsiveHighlightDirective,
     UnlessDirective, // course demo directive
-    AppDropdownDirective
+    AppDropdownDirective,
+    AbcComponent
   ],
   imports: [
     BrowserModule,
