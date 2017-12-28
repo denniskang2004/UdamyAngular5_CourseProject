@@ -21,6 +21,8 @@ import {AppDropdownDirective} from './shared/app-dropdown.directive';
 import {AccountService} from './server/service/account.service';
 import {appLogging} from './server/service/logging.service';
 import {AbcComponent} from './servers/abc.component';
+import {RecipesService} from './recipes/recipes.service';
+import {ShoppingListService} from './shopping-list/shopping-list.service';
 
 // dknote: 15.2: register new component here (demo in lecture 16)
 @NgModule({
@@ -48,6 +50,8 @@ import {AbcComponent} from './servers/abc.component';
   ],
   // dknote 101: add to appModule to make available to whole app, even to service
   providers: [
+    RecipesService,
+    ShoppingListService,
     AccountService,//demo only
     appLogging, //demo only
 

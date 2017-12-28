@@ -7,7 +7,7 @@ import {RecipesService} from './recipes.service';
   templateUrl: './recipes.component.html',
   styleUrls: ['./recipes.component.css'],
   encapsulation: ViewEncapsulation.None ,// dknote 67: change to apply css globally
-  providers:[RecipesService] //dknote 105
+  // providers:[RecipesService] //dknote 105 // dknote 110 shared by shopping list
 })
 export class RecipesComponent implements OnInit {
   recipeSelected:Recipe;

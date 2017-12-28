@@ -6,7 +6,7 @@ import {ShoppingListService} from './shopping-list.service';
   selector: 'app-shopping-list',
   templateUrl: './shopping-list.component.html',
   styleUrls: ['./shopping-list.component.css'],
-  providers:[ShoppingListService]
+  //providers:[ShoppingListService] // dknote 110: moved to module
 })
 export class ShoppingListComponent implements OnInit {
   ingredients: Ingredient[];// dknote 107: use shopping-list service instead

@@ -19,4 +19,10 @@ export class ShoppingListService {
     // dknote 108: after add, notify other parties by event
     this.shoppingListChanged.emit(this.ingredients);
   }
+
+  public addIngredients(ingredientList:Ingredient[]){
+    this.ingredients = this.ingredients.concat(ingredientList);
+
+    this.shoppingListChanged.emit(this.ingredients);
+  }
 }
