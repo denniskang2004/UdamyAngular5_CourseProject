@@ -105,4 +105,13 @@ Local Input:<input type="text" class="form-control" #localInput>
 <h3 *appUnless="random>0.5">custom structure directive when random<=0.5</h3>
 <h3 *appUnless="random<=0.5">custom structure directive when random>0.5</h3>
 random = {{random}}
+
+<!--dknote 92: *ngSwitch explained: when have lot of ngIf-->
+Input Value: <input type="text" class="form-control" [(ngModel)] = "inputValue">
+Got value: {{inputValue}}
+<div [ngSwitch] = "inputValue">
+  <p *ngSwitchCase="5">SwitchCASE value is 5</p>
+  <p *ngSwitchCase="10">SwitchCASE value is 10</p>
+  <p *ngSwitchDefault>SwitchCASE value is default</p>
+</div>
 <br><br><br><br>

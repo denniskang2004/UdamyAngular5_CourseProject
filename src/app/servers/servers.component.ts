@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 
 
 // dknote: 19:  use template instead of templateUrl, use back tick "`" for multiple line
@@ -21,6 +21,7 @@ export class ServersComponent implements OnInit{
   serverNewName = '';
   localInputValue = '';
   random = 0;
+  inputValue:string;
 
   ngOnInit(){
     this.random = Math.random();
