@@ -8,7 +8,7 @@ export class ResponsiveHighlightDirective implements OnInit {
   @HostBinding('style.backgroundColor') backgroundColor: string ;
 
   @Input() defaultColor: string; // make the color flexible
-  @Input() hightColor: string = 'lightblue';
+  @Input() hightlightColor: string = 'lightblue';
 
   constructor(private eleRef: ElementRef, private render: Renderer2) {
   }
@@ -22,7 +22,7 @@ export class ResponsiveHighlightDirective implements OnInit {
     // this.render.setStyle(this.eleRef.nativeElement,'background-color','lightblue');
 
     // dknote 88: option2: use HostBinding
-    this.backgroundColor = this.hightColor;
+    this.backgroundColor = this.hightlightColor;
 
   }
 
