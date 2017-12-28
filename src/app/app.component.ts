@@ -6,7 +6,7 @@ import {appLogging} from './server/service/logging.service';
   selector: 'app-root', // dknote: angular used to replace in index.html
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'], // dknote: 20
-  providers:[appLogging]
+  // providers:[appLogging] //dknote 101: moved to app.module.ts
 })
 export class AppComponent implements OnInit{
   title = 'app';

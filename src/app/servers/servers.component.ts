@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {appLogging} from '../server/service/logging.service';
 import {log} from 'util';
+import {AccountService} from '../server/service/account.service';
 
 
 // dknote: 19:  use template instead of templateUrl, use back tick "`" for multiple line
@@ -34,7 +35,7 @@ export class ServersComponent implements OnInit{
 
   // dknote 97: inject service
   // dknote 100: to share the appComponent's loggingService instance, still need to inject into this constructor
-  constructor(private loggingService:appLogging) {
+  constructor(private loggingService:appLogging, private accountService:AccountService) {
     console.log('servers constructor called');
     // setTimeout(function abc(){
     //   this.allowNewServer = true;
@@ -70,6 +71,7 @@ export class ServersComponent implements OnInit{
   // dknote 68: local template reference
   getLocal(input: any) {
     this.localInputValue = input.value;
+    this.accountService.addAccount('servers GetLocal:'+input);
   }
 
 

@@ -18,6 +18,8 @@ import { BetterHightlightDirective } from './server/directive/better-hightlight.
 import { ResponsiveHighlightDirective } from './server/directive/responsive-highlight.directive';
 import { UnlessDirective } from './server/directive/unless.directive';
 import {AppDropdownDirective} from './shared/app-dropdown.directive';
+import {AccountService} from './server/service/account.service';
+import {appLogging} from './server/service/logging.service';
 
 // dknote: 15.2: register new component here (demo in lecture 16)
 @NgModule({
@@ -42,7 +44,8 @@ import {AppDropdownDirective} from './shared/app-dropdown.directive';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  // dknote 101: add to appModule to make available to whole app, even to service
+  providers: [AccountService,appLogging],
   bootstrap: [AppComponent]
 })
 export class AppModule {
