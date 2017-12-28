@@ -6,7 +6,7 @@
 <p [ngStyle]="{backgroundColor: getColor()}">
   ID: {{serverId}}, status:{{serverStatus}}, status:{{getServerStatus()}}</p>
 
-<!--dknote 36: ngClass example-->
+<!--dknote 36: ngClass example, i.e. [ngClass] = classname:condition -->
 <p [ngClass]="{online: serverStatus === 'online'}">
   ID: {{serverId}}, status:{{serverStatus}}, status:{{getServerStatus()}}</p>
 

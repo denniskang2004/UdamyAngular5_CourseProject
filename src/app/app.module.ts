@@ -13,6 +13,8 @@ import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-it
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
+import {BasicHightlightDirective} from './server/directive/basic-hightlight.directive';
+import { BetterHightlightDirective } from './server/directive/better-hightlight.directive';
 
 // dknote: 15.2: register new component here (demo in lecture 16)
 @NgModule({
@@ -27,6 +29,8 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
     RecipeDetailComponent,
     ShoppingListComponent,
     ShoppingEditComponent, // register here
+    BasicHightlightDirective,
+    BetterHightlightDirective // course demo directive
   ],
   imports: [
     BrowserModule,
