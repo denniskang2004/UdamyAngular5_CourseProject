@@ -12,7 +12,8 @@ import {log} from 'util';
   // <hr/>
   // <div app-server></div>`,
   styleUrls: ['./servers.component.css'],
-  providers:[appLogging] // dknote 97: notify angular about service
+  //providers:[appLogging] // dknote 97: notify angular about service // this will be new instance, diff from one in appComponent
+  // dknote 100: removing this providers, then it will share the instance same as parent in hierachy/tree.
 })
 export class ServersComponent implements OnInit{
   allowNewServer = false;
@@ -28,9 +29,11 @@ export class ServersComponent implements OnInit{
 
   ngOnInit(){
     this.random = Math.random();
+
   }
 
   // dknote 97: inject service
+  // dknote 100: to share the appComponent's loggingService instance, still need to inject into this constructor
   constructor(private loggingService:appLogging) {
     console.log('servers constructor called');
     // setTimeout(function abc(){
@@ -45,7 +48,7 @@ export class ServersComponent implements OnInit{
 
     this.allowNewServer = true;
     this.serverName = 'Name initially';
-    loggingService.logStatus('Name initially');
+    loggingService.logStatus('servers constructor called');
   }
 
   onCreateServer() {

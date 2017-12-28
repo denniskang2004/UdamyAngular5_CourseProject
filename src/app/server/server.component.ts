@@ -11,6 +11,7 @@ import {
   ElementRef,
   AfterContentInit, AfterContentChecked
 } from '@angular/core';
+import {appLogging} from './service/logging.service';
 
 
 // dknote 15: add a component:   component is a ts class
@@ -51,7 +52,8 @@ export class serverComponent
   // dknote 74: use @ContentChild to access content rendered
   @ContentChild('myContent') content: ElementRef;
 
-  constructor() {
+  // dknote 100: use the appCommon's logginer service instance (inject here but don't declare to providers list)
+  constructor(private logger:appLogging) {
 
     this.serverNumber = Math.random();
     if (this.serverNumber > 0.5) {
@@ -59,6 +61,8 @@ export class serverComponent
     } else {
       this.serverStatus = 'offline';
     }
+
+    this.logger.logStatus('server component constructed');
   }
 
   getServerStatus() {// dknote 23

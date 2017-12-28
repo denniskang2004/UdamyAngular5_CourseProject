@@ -2,7 +2,12 @@
 
 // dknote 97: create a service (just a POJO)
 export class appLogging{
+  name:string = 'default';
+
+  public setName(nm){
+    this.name = nm;
+  }
   logStatus(status:string){
-    console.log('[STATUS]:' +status);
+    console.log('[' +this.name+ ']:' +status);
   }
 }
