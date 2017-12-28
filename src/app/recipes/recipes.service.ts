@@ -1,7 +1,9 @@
 import {Recipe} from './recipe.model';
+import {EventEmitter} from '@angular/core';
 
 
 export class RecipesService{
+  recipeSelected = new EventEmitter<Recipe>(); // dknote 106: add an eventEmitter to communicate across component
 
   private recipes: Recipe[] = [
     new Recipe('Grilled Mushroom', 'this is only test recipe',

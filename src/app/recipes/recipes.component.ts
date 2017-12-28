@@ -11,14 +11,21 @@ import {RecipesService} from './recipes.service';
 })
 export class RecipesComponent implements OnInit {
   recipeSelected:Recipe;
-  constructor() {}
+
+  // dknote 106: change to use Recipe Service
+  constructor(private recipeService:RecipesService) {}
 
   ngOnInit() {
-  
+    this.recipeService.recipeSelected.subscribe(
+      (recipe:Recipe) =>{
+        this.recipeSelected = recipe;
+      }
+    )
   }
 
-  rcpSelectItem(itemSelected:Recipe){
-    this.recipeSelected = itemSelected;
-    console.log("selected item name:"+this.recipeSelected.name);
-  }
+  // dknote 106: change to use Recipe Service
+  // rcpSelectItem(itemSelected:Recipe){
+  //   this.recipeSelected = itemSelected;
+  //   console.log("selected item name:"+this.recipeSelected.name);
+  // }
 }

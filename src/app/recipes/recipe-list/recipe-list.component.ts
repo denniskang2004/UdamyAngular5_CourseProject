@@ -8,7 +8,7 @@ import {RecipesService} from '../recipes.service';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
-  @Output() listItemSelected = new EventEmitter<Recipe>();
+  //@Output() listItemSelected = new EventEmitter<Recipe>();// dknote 106: change to use Recipe Service
   recipes: Recipe[];//dknote 105: moved to RecipesService
 
   // dknote 105: inject service
@@ -20,6 +20,6 @@ export class RecipeListComponent implements OnInit {
   }
 
   onSelectItem(item:Recipe){
-    this.listItemSelected.emit(item);
+    //this.listItemSelected.emit(item);// dknote 106: change to use Recipe Service
   }
 }
