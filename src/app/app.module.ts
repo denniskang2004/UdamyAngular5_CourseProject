@@ -17,6 +17,7 @@ import {BasicHightlightDirective} from './server/directive/basic-hightlight.dire
 import { BetterHightlightDirective } from './server/directive/better-hightlight.directive';
 import { ResponsiveHighlightDirective } from './server/directive/responsive-highlight.directive';
 import { UnlessDirective } from './server/directive/unless.directive';
+import {AppDropdownDirective} from './shared/app-dropdown.directive';
 
 // dknote: 15.2: register new component here (demo in lecture 16)
 @NgModule({
@@ -34,7 +35,8 @@ import { UnlessDirective } from './server/directive/unless.directive';
     BasicHightlightDirective,
     BetterHightlightDirective,
     ResponsiveHighlightDirective,
-    UnlessDirective // course demo directive
+    UnlessDirective, // course demo directive
+    AppDropdownDirective
   ],
   imports: [
     BrowserModule,
