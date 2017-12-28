@@ -15,6 +15,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import {BasicHightlightDirective} from './server/directive/basic-hightlight.directive';
 import { BetterHightlightDirective } from './server/directive/better-hightlight.directive';
+import { ResponsiveHighlightDirective } from './server/directive/responsive-highlight.directive';
 
 // dknote: 15.2: register new component here (demo in lecture 16)
 @NgModule({
@@ -30,7 +31,8 @@ import { BetterHightlightDirective } from './server/directive/better-hightlight.
     ShoppingListComponent,
     ShoppingEditComponent, // register here
     BasicHightlightDirective,
-    BetterHightlightDirective // course demo directive
+    BetterHightlightDirective,
+    ResponsiveHighlightDirective // course demo directive
   ],
   imports: [
     BrowserModule,
