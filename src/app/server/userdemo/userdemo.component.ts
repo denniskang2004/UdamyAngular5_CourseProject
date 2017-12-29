@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./userdemo.component.css']
 })
 export class UserdemoComponent implements OnInit {
-
+  users:{id:number,name:string}[] = [
+    {id:1, name:'dennis'},
+    {id:2, name:'mike'}
+  ];
   constructor() { }
 
   ngOnInit() {

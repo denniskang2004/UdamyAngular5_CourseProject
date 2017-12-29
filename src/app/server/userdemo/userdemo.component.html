@@ -5,3 +5,9 @@
   <!--relative path structure-->
   <a routerLink="../servers">go back to servers</a>
 </p>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let u of users">
+    <!--dknote 126: use the route parameter to user page with param passed-->
+    <a [routerLink]="['/users',u.id,u.name]">{{u.id}} - {{u.name}}</a>
+  </li>
+</ul>

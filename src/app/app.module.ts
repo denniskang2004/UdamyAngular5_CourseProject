@@ -30,6 +30,7 @@ import { InformationComponent } from './servers/information/information.componen
 import { UserComponent } from './server/userdemo/user/user.component';
 
 
+
 // dknote 114: add routes/routing
 const appRoutes: Routes = [
   {path:'recipes',component:RecipesComponent},
@@ -63,7 +64,7 @@ const appRoutes: Routes = [
     UserdemoComponent,
     HomedemoComponent,
     InformationComponent,
-    UserComponent
+    UserComponent,
   ],
   imports: [
     BrowserModule,
