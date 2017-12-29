@@ -27,6 +27,7 @@ import { UserdemoComponent } from './server/userdemo/userdemo.component';
 import { HomedemoComponent } from './server/homedemo/homedemo.component';
 import {RouterModule, Routes} from '@angular/router';
 import { InformationComponent } from './servers/information/information.component';
+import { UserComponent } from './server/userdemo/user/user.component';
 
 
 // dknote 114: add routes/routing
@@ -36,6 +37,7 @@ const appRoutes: Routes = [
   {path:'home',component:HomedemoComponent},
   {path:'servers',component:ServersComponent},
   {path:'users',component:UserdemoComponent},
+  {path:'users/:id/:name',component:UserComponent}, // dknote 120: pass parameter to route
   {path:'servers/info',component:InformationComponent}, // local:4200/servers/users   // dknote 119: relative route in programming
 ]
 
@@ -60,7 +62,8 @@ const appRoutes: Routes = [
     AbcComponent,
     UserdemoComponent,
     HomedemoComponent,
-    InformationComponent
+    InformationComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

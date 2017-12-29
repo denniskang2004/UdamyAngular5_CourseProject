@@ -6,6 +6,8 @@ Ctrl+shift+F: find a key word (optional: regular expression)
 
 Alt + F12: show terminal window
 
+Alt + 1 : project window/view
+
 
 Parent component Pass data to component thru Custom Property
 1. child component define property using @Input()
