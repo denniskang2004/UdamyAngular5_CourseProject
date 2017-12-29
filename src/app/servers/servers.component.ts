@@ -2,6 +2,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {appLogging} from '../server/service/logging.service';
 import {log} from 'util';
 import {AccountService} from '../server/service/account.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 
 // dknote: 19:  use template instead of templateUrl, use back tick "`" for multiple line
@@ -35,7 +36,11 @@ export class ServersComponent implements OnInit{
 
   // dknote 97: inject service
   // dknote 100: to share the appComponent's loggingService instance, still need to inject into this constructor
-  constructor(private loggingService:appLogging, private accountService:AccountService) {
+  constructor(
+    private loggingService:appLogging,
+    private accountService:AccountService,
+    private router: Router,
+    private activatedRoute:ActivatedRoute) {
     console.log('servers constructor called');
     // setTimeout(function abc(){
     //   this.allowNewServer = true;
@@ -74,6 +79,16 @@ export class ServersComponent implements OnInit{
     this.accountService.addAccount(input);
   }
 
+  // dknote 118: navigate programmingly
+  navToUserPage(){
+    this.router.navigate(['/users']);
+  }
 
+  // dknote 119: relative route in programming
+  loadInfo(){
+    this.router.navigate(
+      ['info'],
+      {relativeTo:this.activatedRoute});
+  }
 }
 

@@ -23,6 +23,21 @@ import {appLogging} from './server/service/logging.service';
 import {AbcComponent} from './servers/abc.component';
 import {RecipesService} from './recipes/recipes.service';
 import {ShoppingListService} from './shopping-list/shopping-list.service';
+import { UserdemoComponent } from './server/userdemo/userdemo.component';
+import { HomedemoComponent } from './server/homedemo/homedemo.component';
+import {RouterModule, Routes} from '@angular/router';
+import { InformationComponent } from './servers/information/information.component';
+
+
+// dknote 114: add routes/routing
+const appRoutes: Routes = [
+  {path:'recipes',component:RecipesComponent},
+  {path:'shopping-list',component:ShoppingListComponent},
+  {path:'home',component:HomedemoComponent},
+  {path:'servers',component:ServersComponent},
+  {path:'users',component:UserdemoComponent},
+  {path:'servers/info',component:InformationComponent}, // local:4200/servers/users   // dknote 119: relative route in programming
+]
 
 // dknote: 15.2: register new component here (demo in lecture 16)
 @NgModule({
@@ -42,11 +57,17 @@ import {ShoppingListService} from './shopping-list/shopping-list.service';
     ResponsiveHighlightDirective,
     UnlessDirective, // course demo directive
     AppDropdownDirective,
-    AbcComponent
+    AbcComponent,
+    UserdemoComponent,
+    HomedemoComponent,
+    InformationComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+
+    // dknote 114: register routes
+    RouterModule.forRoot(appRoutes)
   ],
   // dknote 101: add to appModule to make available to whole app, even to service
   providers: [

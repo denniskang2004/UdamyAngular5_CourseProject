@@ -3,19 +3,27 @@
   (selectedFeature)="onSelectFeature($event)"
 ></app-header>
 <div class="container">
+
+
+
+  <!--angular marks location: dknote 114-->
   <div class="row">
-    <div class="col-md-12">
-      <!--dknote 77: set visibility by the flags -->
-      <app-recipes *ngIf="featureSelected==='recipe'"></app-recipes>
-      <app-shopping-list *ngIf="featureSelected==='shopping-list'"></app-shopping-list>
-      <app-servers *ngIf="featureSelected==='demo'"></app-servers> <!--//: demo the basic-->
+    <div class="col-xs-12">
+      <router-outlet></router-outlet>
     </div>
   </div>
 
-  <div class="row">
-
-  </div>
 </div>
+
+<!--below, old way of routing using ngIf-->
+<!--<div class="row">-->
+<!--<div class="col-md-12">-->
+<!--&lt;!&ndash;dknote 77: set visibility by the flags &ndash;&gt;-->
+<!--<app-recipes *ngIf="featureSelected==='recipe'"></app-recipes>-->
+<!--<app-shopping-list *ngIf="featureSelected==='shopping-list'"></app-shopping-list>-->
+<!--<app-homedemo *ngIf="featureSelected==='demo'"></app-homedemo> &lt;!&ndash;//: demo the basic&ndash;&gt;-->
+<!--</div>-->
+<!--</div>-->
 
 
 <!--15.3 use the new component (demo in lecture 17)-->
