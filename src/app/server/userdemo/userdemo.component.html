@@ -1,13 +1,27 @@
-<h1>Users Page</h1>
-<p>
-  user demo works!
+<div class="container">
+  <div class="row col-xs-12">
+    <h1>Users Page</h1>
+    <p>
+      user demo works!
 
-  <!--relative path structure-->
-  <a routerLink="../servers">go back to servers</a>
-</p>
-<ul class="list-group">
-  <li class="list-group-item" *ngFor="let u of users">
-    <!--dknote 126: use the route parameter to user page with param passed-->
-    <a [routerLink]="['/users',u.id,u.name]">{{u.id}} - {{u.name}}</a>
-  </li>
-</ul>
+      <!--relative path structure-->
+      <a routerLink="../servers">go back to servers</a>
+    </p>
+
+  </div>
+<div class="row">
+  <div class="row col-xs-6">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let u of users">
+        <!--dknote 126: use the route parameter to user page with param passed-->
+        <a [routerLink]="['/users',u.id,u.name]">{{u.id}} - {{u.name}}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="row col-xs-6">
+    <!--dknote 127: nested route-->
+    <router-outlet></router-outlet>
+  </div>
+
+</div>
+</div>

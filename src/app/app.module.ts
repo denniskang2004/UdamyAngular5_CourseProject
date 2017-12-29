@@ -37,8 +37,10 @@ const appRoutes: Routes = [
   {path:'shopping-list',component:ShoppingListComponent},
   {path:'home',component:HomedemoComponent},
   {path:'servers',component:ServersComponent},
-  {path:'users',component:UserdemoComponent},
-  {path:'users/:id/:name',component:UserComponent}, // dknote 120: pass parameter to route
+  {path:'users',component:UserdemoComponent, children:[
+      {path:':id/:name',component:UserComponent},// dknote 127: nested route
+    ]},
+  // {path:'users/:id/:name',component:UserComponent}, // dknote 120: pass parameter to route
   {path:'servers/info',component:InformationComponent}, // local:4200/servers/users   // dknote 119: relative route in programming
 ]
 
