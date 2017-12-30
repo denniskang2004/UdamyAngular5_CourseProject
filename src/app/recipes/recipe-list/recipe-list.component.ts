@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit,Output} from '@angular/core';
 import {Recipe} from '../recipe.model';
 import {RecipesService} from '../recipes.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-recipe-list',
@@ -12,14 +13,20 @@ export class RecipeListComponent implements OnInit {
   recipes: Recipe[];//dknote 105: moved to RecipesService
 
   // dknote 105: inject service
-  constructor(private recipeService:RecipesService) {}
+  constructor(
+    private recipeService:RecipesService,
+    private router:Router
+  ) {}
 
   ngOnInit() {
     // dknote 105: use service
     this.recipes = this.recipeService.getRecipes();
   }
 
-  onSelectItem(item:Recipe){
-    //this.listItemSelected.emit(item);// dknote 106: change to use Recipe Service
+  // onSelectItem(item:Recipe){
+  //   //this.listItemSelected.emit(item);// dknote 106: change to use Recipe Service
+  // }
+  onAddNewRecipe(){
+    this.router.navigate(['/recipes','new']);
   }
 }

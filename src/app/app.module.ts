@@ -34,6 +34,7 @@ import {AuthGuardService} from './auth-guard.service';
 import { NotPermittedComponent } from './shared/not-permitted/not-permitted.component';
 import {UserResolverService} from './server/userdemo/user/user-resolver.service';
 import {NoSelectComponent} from './recipes/recipe-detail/no-select/no-select.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 
 
@@ -64,7 +65,8 @@ import {NoSelectComponent} from './recipes/recipe-detail/no-select/no-select.com
     UserEditComponent,
     PageNotFoundComponent,
     NotPermittedComponent,
-    NoSelectComponent
+    NoSelectComponent,
+    RecipeEditComponent
 
   ],
   imports: [
