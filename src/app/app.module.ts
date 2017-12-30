@@ -29,6 +29,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { InformationComponent } from './servers/information/information.component';
 import { UserComponent } from './server/userdemo/user/user.component';
 import { UserEditComponent } from './server/userdemo/user-edit/user-edit.component';
+import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 
 
 
@@ -44,6 +45,8 @@ const appRoutes: Routes = [
     ]},
   // {path:'users/:id/:name',component:UserComponent}, // dknote 120: pass parameter to route
   {path:'servers/info',component:InformationComponent}, // local:4200/servers/users   // dknote 119: relative route in programming
+  {path: 'not-found',component:PageNotFoundComponent}, //dknote 130: define page not found
+  {path:'**',redirectTo:'not-found'}//dknote 130: put wildcard ** in last route declaration, redirect to this page
 ]
 
 // dknote: 15.2: register new component here (demo in lecture 16)
@@ -70,6 +73,7 @@ const appRoutes: Routes = [
     InformationComponent,
     UserComponent,
     UserEditComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
