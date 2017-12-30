@@ -9,6 +9,8 @@ import {ShoppingListComponent} from './shopping-list/shopping-list.component';
 import {UserdemoComponent} from './server/userdemo/userdemo.component';
 import {HomedemoComponent} from './server/homedemo/homedemo.component';
 import {UserComponent} from './server/userdemo/user/user.component';
+import {AuthGuardService} from './auth-guard.service';
+import {NotPermittedComponent} from './shared/not-permitted/not-permitted.component';
 
 // dknote 114: add routes/routing
 const appRoutes: Routes = [
@@ -16,12 +18,15 @@ const appRoutes: Routes = [
   {path:'shopping-list',component:ShoppingListComponent},
   {path:'home',component:HomedemoComponent},
   {path:'servers',component:ServersComponent},
-  {path:'users',component:UserdemoComponent, children:[
+
+  // dknote 134, dknote 135: protect routes using CanActivate
+  {path:'users',/*canActivate:[AuthGuardService],*/ canActivateChild:[AuthGuardService], component:UserdemoComponent, children:[
       {path:':id/:name',component:UserComponent},// dknote 127: nested route
       {path:':id/:name/edit',component:UserEditComponent} //dknote 128
     ]},
   // {path:'users/:id/:name',component:UserComponent}, // dknote 120: pass parameter to route
   {path:'servers/info',component:InformationComponent}, // local:4200/servers/users   // dknote 119: relative route in programming
+  {path: 'not-permitted',component:NotPermittedComponent},
   {path: 'not-found',component:PageNotFoundComponent}, //dknote 130: define page not found
   {path:'**',redirectTo:'not-found'}//dknote 130: put wildcard ** in last route declaration, redirect to this page
 ];

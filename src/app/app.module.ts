@@ -30,6 +30,8 @@ import { UserComponent } from './server/userdemo/user/user.component';
 import { UserEditComponent } from './server/userdemo/user-edit/user-edit.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 import {AppRoutingModule} from './app-routing.module';
+import {AuthGuardService} from './auth-guard.service';
+import { NotPermittedComponent } from './shared/not-permitted/not-permitted.component';
 
 
 
@@ -59,6 +61,8 @@ import {AppRoutingModule} from './app-routing.module';
     UserComponent,
     UserEditComponent,
     PageNotFoundComponent,
+    NotPermittedComponent
+
   ],
   imports: [
     BrowserModule,
@@ -74,7 +78,7 @@ import {AppRoutingModule} from './app-routing.module';
     ShoppingListService,
     AccountService,//demo only
     appLogging, //demo only
-
+    AuthGuardService, // dknote 134, dknote 135: protect route using guard
   ],
   bootstrap: [AppComponent]
 })
