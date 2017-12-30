@@ -38,6 +38,7 @@ const appRoutes: Routes = [
 // dknote 132: outsource configuratoin to this separate module
 @NgModule({
   imports:[
+    //RouterModule.forRoot(appRoutes, {useHash:true})  // dknote 140: use location strategies, supporting some special hosting servers
     RouterModule.forRoot(appRoutes)
   ],
   exports:[RouterModule] // dknote 132: export this configuration out
