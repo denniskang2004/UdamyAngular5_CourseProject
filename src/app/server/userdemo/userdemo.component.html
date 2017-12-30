@@ -12,9 +12,14 @@
 <div class="row">
   <div class="row col-xs-6">
     <ul class="list-group">
-      <li class="list-group-item" *ngFor="let u of users">
-        <!--dknote 126: use the route parameter to user page with param passed-->
-        <a [routerLink]="['/users',u.id,u.name]">{{u.id}} - {{u.name}}</a>
+      <li class="list-group-item" *ngFor="let u of users;let i = index">
+        <!--dknote 128: use the route parameter to user page with param passed-->
+        <!--dknote 128: make query parameter dynamic based on index of list -->
+        <a
+          [routerLink]="['/users',u.id,u.name]"
+          [queryParams] = "{allowEdit: i===1? '1':'0'}"
+
+        >{{u.id}} - {{u.name}}</a>
       </li>
     </ul>
   </div>

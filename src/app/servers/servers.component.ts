@@ -1,6 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {appLogging} from '../server/service/logging.service';
-import {log} from 'util';
 import {AccountService} from '../server/service/account.service';
 import {ActivatedRoute, Router} from '@angular/router';
 

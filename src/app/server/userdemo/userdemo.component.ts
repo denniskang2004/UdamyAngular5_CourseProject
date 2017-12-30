@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-userdemo',
@@ -10,9 +11,11 @@ export class UserdemoComponent implements OnInit {
     {id:1, name:'dennis'},
     {id:2, name:'mike'}
   ];
-  constructor() { }
+  constructor() {  }
 
   ngOnInit() {
+
   }
+
 
 }
