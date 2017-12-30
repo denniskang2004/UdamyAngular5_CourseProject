@@ -5,6 +5,7 @@
     <app-recipe-list></app-recipe-list>
   </div>
   <div class="col-md-7">
+    dknote 143: change to angular routing
     <app-recipe-detail
       *ngIf="recipeSelected;else infoText"
       [detailRecipSelected] = "recipeSelected"></app-recipe-detail>
@@ -12,5 +13,6 @@
       <!--dknote 79: use ng-template with *ngIf-->
       <p>Please select a receipe!</p>
     </ng-template>
+
   </div>
 </div>

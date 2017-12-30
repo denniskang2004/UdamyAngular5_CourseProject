@@ -7,13 +7,14 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   // dknote 77: make output to app.component.html
-  @Output() selectedFeature = new EventEmitter<string>();
+  // @Output() selectedFeature = new EventEmitter<string>();// dknote 143: comment to use angular route
 
   constructor() { }
 
-  selectFeature(feature:string){
-    this.selectedFeature.emit(feature);
-  }
+  // dknote 143: comment to use angular route
+  // selectFeature(feature:string){
+  //   this.selectedFeature.emit(feature);
+  // }
   ngOnInit() {
   }
 

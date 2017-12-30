@@ -9,23 +9,27 @@
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <!--dknote 77-->
-        <li><a href="#" (click)="selectFeature('recipe')">Recipes</a></li>
-        <li><a href="#" (click)="selectFeature('shopping-list')">Shopping List</a></li>
+        <!--<li><a href="#" (click)="selectFeature('recipe')">Recipes</a></li>-->
+        <!--<li><a href="#" (click)="selectFeature('shopping-list')">Shopping List</a></li>-->
         <!--<li><a href="#" (click)="selectFeature('demo')">Course Demos</a></li>-->
+        <!--dknote 143: project: use angular routing-->
+        <li routerLinkActive="active"><a routerLink="/recipes">Recipes</a></li>
+        <li routerLinkActive="active"><a routerLink="/shopping-list">Shopping List</a></li>
+        <!--dknote: use routerLinkActive to mark the active link-->
 
         <!--dknote 114: new way routing-->
         <!--with "/" it's an absolute path-->
-        <li role="presentation" ><a routerLinkActive="active" routerLink="/home">Demo</a></li>
-        <li role="presentation" ><a routerLinkActive="active"  routerLink="/servers">Servers Demo</a></li>
-        <li role="presentation" ><a routerLinkActive="active"  routerLink="/users">Users Demo</a></li>
+        <li routerLinkActive="active" role="presentation" ><a routerLinkActive="active" routerLink="/home">Demo</a></li>
+        <li routerLinkActive="active" role="presentation" ><a routerLinkActive="active"  routerLink="/servers">Servers Demo</a></li>
+        <li routerLinkActive="active" role="presentation" ><a routerLinkActive="active"  routerLink="/users">Users Demo</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li appDropdown class="dropdown">
-          <a href="#" class="dropdown-toggle" role="button">Manage
+          <a style="cursor: pointer;" class="dropdown-toggle" role="button">Manage
             <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Save Data</a></li>
-            <li><a href="#">Fetch Data</a></li>
+            <li><a >Save Data</a></li>
+            <li><a >Fetch Data</a></li>
           </ul>
         </li>
       </ul>

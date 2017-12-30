@@ -14,11 +14,15 @@ import {UserResolverService} from './server/userdemo/user/user-resolver.service'
 
 // dknote 114: add routes/routing
 const appRoutes: Routes = [
-  {path:'recipes',component:RecipesComponent},
+  // dknote 143: below are for projects
+  {path:'recipes',component:RecipesComponent, children:[
+
+    ]},
   {path:'shopping-list',component:ShoppingListComponent},
   {path:'home',component:HomedemoComponent},
   {path:'servers',component:ServersComponent},
 
+  // dknote: below are for course demo
   // dknote 134, dknote 135: protect routes using CanActivate
   {
     path:'users',
@@ -39,7 +43,7 @@ const appRoutes: Routes = [
 @NgModule({
   imports:[
     //RouterModule.forRoot(appRoutes, {useHash:true})  // dknote 140: use location strategies, supporting some special hosting servers
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes) //dknote 143
   ],
   exports:[RouterModule] // dknote 132: export this configuration out
 })
