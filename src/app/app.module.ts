@@ -25,29 +25,14 @@ import {RecipesService} from './recipes/recipes.service';
 import {ShoppingListService} from './shopping-list/shopping-list.service';
 import { UserdemoComponent } from './server/userdemo/userdemo.component';
 import { HomedemoComponent } from './server/homedemo/homedemo.component';
-import {RouterModule, Routes} from '@angular/router';
 import { InformationComponent } from './servers/information/information.component';
 import { UserComponent } from './server/userdemo/user/user.component';
 import { UserEditComponent } from './server/userdemo/user-edit/user-edit.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
+import {AppRoutingModule} from './app-routing.module';
 
 
 
-// dknote 114: add routes/routing
-const appRoutes: Routes = [
-  {path:'recipes',component:RecipesComponent},
-  {path:'shopping-list',component:ShoppingListComponent},
-  {path:'home',component:HomedemoComponent},
-  {path:'servers',component:ServersComponent},
-  {path:'users',component:UserdemoComponent, children:[
-      {path:':id/:name',component:UserComponent},// dknote 127: nested route
-      {path:':id/:name/edit',component:UserEditComponent} //dknote 128
-    ]},
-  // {path:'users/:id/:name',component:UserComponent}, // dknote 120: pass parameter to route
-  {path:'servers/info',component:InformationComponent}, // local:4200/servers/users   // dknote 119: relative route in programming
-  {path: 'not-found',component:PageNotFoundComponent}, //dknote 130: define page not found
-  {path:'**',redirectTo:'not-found'}//dknote 130: put wildcard ** in last route declaration, redirect to this page
-]
 
 // dknote: 15.2: register new component here (demo in lecture 16)
 @NgModule({
@@ -80,7 +65,8 @@ const appRoutes: Routes = [
     FormsModule,
 
     // dknote 114: register routes
-    RouterModule.forRoot(appRoutes)
+    // RouterModule.forRoot(appRoutes) //dknote 132: separate to another module for routing
+    AppRoutingModule //dknote 132: import routings
   ],
   // dknote 101: add to appModule to make available to whole app, even to service
   providers: [
