@@ -10,6 +10,7 @@ import {UserdemoComponent} from './server/userdemo/userdemo.component';
 import {HomedemoComponent} from './server/homedemo/homedemo.component';
 import {UserComponent} from './server/userdemo/user/user.component';
 import {NotPermittedComponent} from './shared/not-permitted/not-permitted.component';
+import {UserResolverService} from './server/userdemo/user/user-resolver.service';
 
 // dknote 114: add routes/routing
 const appRoutes: Routes = [
@@ -24,7 +25,7 @@ const appRoutes: Routes = [
     /*canActivate:[AuthGuardService],
     canActivateChild:[AuthGuardService],*/
     component:UserdemoComponent, children:[
-      {path:':id/:name',component:UserComponent},// dknote 127: nested route
+      {path:':id/:name',component:UserComponent, resolve:{userResolver:UserResolverService}},// dknote 127: nested route
       {path:':id/:name/edit',component:UserEditComponent} //dknote 128
     ]},
   // {path:'users/:id/:name',component:UserComponent}, // dknote 120: pass parameter to route

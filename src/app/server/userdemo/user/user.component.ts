@@ -19,11 +19,12 @@ export class UserComponent implements OnInit , OnDestroy{
   ngOnInit() {
 
     // get parameters static way
-    this.user = {
-      id:this.route.snapshot.params['id'],
-      name:this.route.snapshot.params['name']
-    }
-
+    // this.user = {
+    //   id:this.route.snapshot.params['id'],
+    //   name:this.route.snapshot.params['name']
+    // }
+    // dknote 139: change to get from resolver
+    this.user = this.route.snapshot.data['userResolver'];
 
 
     // dknote 112: detect change on route parameters using Route Observable

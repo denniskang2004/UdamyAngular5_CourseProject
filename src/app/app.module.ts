@@ -32,6 +32,7 @@ import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.co
 import {AppRoutingModule} from './app-routing.module';
 import {AuthGuardService} from './auth-guard.service';
 import { NotPermittedComponent } from './shared/not-permitted/not-permitted.component';
+import {UserResolverService} from './server/userdemo/user/user-resolver.service';
 
 
 
@@ -79,6 +80,7 @@ import { NotPermittedComponent } from './shared/not-permitted/not-permitted.comp
     AccountService,//demo only
     appLogging, //demo only
     AuthGuardService, // dknote 134, dknote 135: protect route using guard
+    UserResolverService
   ],
   bootstrap: [AppComponent]
 })
