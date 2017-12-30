@@ -38,6 +38,8 @@ export class RecipeDetailComponent implements OnInit {
     this.shopService.addIngredients(ingrList);
   }
   onEditRecipe(){
-    this.router.navigate(['/recipes',this.index,'edit']);
+
+    //this.router.navigate(['/recipes',this.index,'edit']);
+    this.router.navigate(['edit'],{relativeTo:this.route});//relative so no need id
   }
 }
