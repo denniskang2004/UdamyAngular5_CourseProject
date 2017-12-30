@@ -5,14 +5,17 @@
     <app-recipe-list></app-recipe-list>
   </div>
   <div class="col-md-7">
-    dknote 143: change to angular routing
-    <app-recipe-detail
-      *ngIf="recipeSelected;else infoText"
-      [detailRecipSelected] = "recipeSelected"></app-recipe-detail>
-    <ng-template #infoText>
-      <!--dknote 79: use ng-template with *ngIf-->
-      <p>Please select a receipe!</p>
-    </ng-template>
+    <!--dknote 143: change to angular routing-->
+    <!--<app-recipe-detail-->
+      <!--*ngIf="recipeSelected;else infoText"-->
+      <!--[detailRecipSelected] = "recipeSelected"></app-recipe-detail>-->
+    <!--<ng-template #infoText>-->
+      <!--&lt;!&ndash;dknote 79: use ng-template with *ngIf&ndash;&gt;-->
+      <!--<p>Please select a receipe!</p>-->
+    <!--</ng-template>-->
 
+    <!--dknote: put child route here-->
+    <!--//dknote 148: add children routes for recipes-->
+    <router-outlet></router-outlet>
   </div>
 </div>

@@ -8,9 +8,11 @@
   <hr>
   <hr>
   <div class="row">
-    <div class="col-xs-12" *ngFor="let r of recipes">
+    <div class="col-xs-12" *ngFor="let r of recipes,let i=index">
 
-      <app-recipe-item [recipe] = r ></app-recipe-item>
+      <!--<app-recipe-item [recipe] = r ></app-recipe-item>-->
+      <!--dknote 148: add child recipe routing -->
+      <app-recipe-item [recipe] = r [routerLink]="['/recipes',i]" ></app-recipe-item>
     </div>
   </div>
 </div>

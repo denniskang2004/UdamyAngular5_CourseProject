@@ -11,12 +11,15 @@ import {HomedemoComponent} from './server/homedemo/homedemo.component';
 import {UserComponent} from './server/userdemo/user/user.component';
 import {NotPermittedComponent} from './shared/not-permitted/not-permitted.component';
 import {UserResolverService} from './server/userdemo/user/user-resolver.service';
+import {RecipeDetailComponent} from './recipes/recipe-detail/recipe-detail.component';
+import {NoSelectComponent} from './recipes/recipe-detail/no-select/no-select.component';
 
 // dknote 114: add routes/routing
 const appRoutes: Routes = [
   // dknote 143: below are for projects
   {path:'recipes',component:RecipesComponent, children:[
-
+      {path: ':id',component:RecipeDetailComponent}, //dknote 148: add children routes for recipes
+      {path: '**',component:NoSelectComponent}
     ]},
   {path:'shopping-list',component:ShoppingListComponent},
   {path:'home',component:HomedemoComponent},

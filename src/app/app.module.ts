@@ -33,6 +33,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AuthGuardService} from './auth-guard.service';
 import { NotPermittedComponent } from './shared/not-permitted/not-permitted.component';
 import {UserResolverService} from './server/userdemo/user/user-resolver.service';
+import {NoSelectComponent} from './recipes/recipe-detail/no-select/no-select.component';
 
 
 
@@ -62,7 +63,8 @@ import {UserResolverService} from './server/userdemo/user/user-resolver.service'
     UserComponent,
     UserEditComponent,
     PageNotFoundComponent,
-    NotPermittedComponent
+    NotPermittedComponent,
+    NoSelectComponent
 
   ],
   imports: [
