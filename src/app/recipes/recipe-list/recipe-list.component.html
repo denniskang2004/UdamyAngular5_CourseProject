@@ -12,7 +12,7 @@
 
       <!--<app-recipe-item [recipe] = r ></app-recipe-item>-->
       <!--dknote 148: add child recipe routing -->
-      <app-recipe-item [recipe] = r [routerLink]="['/recipes',i]" ></app-recipe-item>
+      <app-recipe-item [recipe] = r [itemIndex] = "i"></app-recipe-item>
     </div>
   </div>
 </div>
