@@ -14,6 +14,7 @@ import {UserResolverService} from './server/userdemo/user/user-resolver.service'
 import {RecipeDetailComponent} from './recipes/recipe-detail/recipe-detail.component';
 import {NoSelectComponent} from './recipes/recipe-detail/no-select/no-select.component';
 import {RecipeEditComponent} from './recipes/recipe-edit/recipe-edit.component';
+import {ObsDemoComponent} from './server/obs-demo/obs-demo.component';
 
 // dknote 114: add routes/routing
 const appRoutes: Routes = [
@@ -45,6 +46,7 @@ const appRoutes: Routes = [
   {path: 'servers/info', component: InformationComponent}, // local:4200/servers/users   // dknote 119: relative route in programming
   {path: 'not-permitted', component: NotPermittedComponent},
   {path: 'not-found', component: PageNotFoundComponent, data: {message: 'page not found message here static passed'}}, //dknote 130: define page not found //// dknote 138: get static data from route config
+  {path: 'obs', component: ObsDemoComponent},
   {path: '**', redirectTo: 'not-found'}//dknote 130: put wildcard ** in last route declaration, redirect to this page
 ];
 

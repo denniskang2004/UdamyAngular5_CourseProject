@@ -2,31 +2,30 @@
   <div class="row col-xs-12">
     <h1>Users Page</h1>
     <p>
-      user demo works!
-
       <!--relative path structure-->
       <a routerLink="../servers">go back to servers</a>
     </p>
 
   </div>
-<div class="row">
-  <div class="row col-xs-6">
-    <ul class="list-group">
-      <li class="list-group-item" *ngFor="let u of users;let i = index">
-        <!--dknote 128: use the route parameter to user page with param passed-->
-        <!--dknote 128: make query parameter dynamic based on index of list -->
-        <a
-          [routerLink]="['/users',u.id,u.name]"
-          [queryParams] = "{allowEdit: i===1? '1':'0'}"
+  <div class="row">
+    <div class="row col-xs-6">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let u of users;let i = index">
+          <!--dknote 128: use the route parameter to user page with param passed-->
+          <!--dknote 128: make query parameter dynamic based on index of list -->
+          <a
+            [routerLink]="['/users',u.id,u.name]"
+            [queryParams]="{allowEdit: i===1? '1':'0'}"
 
-        >{{u.id}} - {{u.name}}</a>
-      </li>
-    </ul>
-  </div>
-  <div class="row col-xs-6">
-    <!--dknote 127: nested route-->
-    <router-outlet></router-outlet>
-  </div>
+          >{{u.id}} - {{u.name}}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="row col-xs-6">
+      <!--dknote 127: nested route-->
+      <router-outlet></router-outlet>
+    </div>
 
-</div>
+  </div>
+  <br>
 </div>

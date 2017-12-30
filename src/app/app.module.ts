@@ -35,6 +35,7 @@ import { NotPermittedComponent } from './shared/not-permitted/not-permitted.comp
 import {UserResolverService} from './server/userdemo/user/user-resolver.service';
 import {NoSelectComponent} from './recipes/recipe-detail/no-select/no-select.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { ObsDemoComponent } from './server/obs-demo/obs-demo.component';
 
 
 
@@ -66,7 +67,8 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
     PageNotFoundComponent,
     NotPermittedComponent,
     NoSelectComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    ObsDemoComponent
 
   ],
   imports: [
