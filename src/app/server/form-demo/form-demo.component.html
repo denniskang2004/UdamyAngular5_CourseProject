@@ -11,11 +11,10 @@
           class="form-control"
           ngModel name="username"
           required
-
         >
         <!--dknote 172: register with angular -->
       </div>
-      <div class="form-group">
+      <div class="form-group" #email>
         <label for="email">Email</label>
         <input
           id="email"
@@ -24,11 +23,13 @@
           name="email"
           class="form-control"
           required
-          email
+          #email = 'ngModel'
         >
+        <span *ngIf="!email.valid && email.touched" class="help-block" style="color: red">Please enter valid email.</span>
         <!--dknote 175: add "email" validator to check validation. Below is the full list:-->
         <!--https://angular.io/docs/ts/latest/api/forms/index/Validators-class.html-->
       </div>
+
       <div class="form-group">
         <button
           class="btn btn-primary"
