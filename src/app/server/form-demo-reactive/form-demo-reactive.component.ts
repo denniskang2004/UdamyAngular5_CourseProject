@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-form-demo-reactive',
@@ -17,8 +17,14 @@ export class FormDemoReactiveComponent implements OnInit {
   ngOnInit() {
     // dknote 188: create / add controls to reactive forms
     this.signupForm = new FormGroup({
-      'username': new FormControl(null),
-      'email' : new FormControl(null),
+      'username': new FormControl(
+        null,
+        Validators.required // dknote: add validation
+      ),
+      'email' : new FormControl(
+        null,
+        [Validators.required,Validators.email]//dknote: add validation
+      ),
       'gender' : new FormControl('male')
     })
   }
