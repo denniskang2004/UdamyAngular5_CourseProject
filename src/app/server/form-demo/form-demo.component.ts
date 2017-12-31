@@ -25,4 +25,30 @@ export class FormDemoComponent implements OnInit {
   onClick() { //dknote: another way to access form by @ViewChild
     console.log(this.myForm);
   }
+
+  // dknote 183: setValue will override all values for all controls
+  onSuggestUserName(){
+    this.myForm.setValue(
+      {
+        userGroup:{
+          email:'default@gmail.com',
+          username:'superUser'
+        },
+        secret:'pet',
+        answer:'',
+        gender:'male'
+      }
+    )
+  }
+
+  // dknote 183: patch value can set value for one control!
+  onPatchUserName(){
+    this.myForm.form.patchValue(
+      {
+        userGroup:{
+          email:'default@gmail.com'
+        }
+      }
+    )
+  }
 }

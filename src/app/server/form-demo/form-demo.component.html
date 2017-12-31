@@ -15,6 +15,15 @@
           >
           <!--dknote 172: register with angular -->
         </div>
+        <div class="form-group">
+          <button class="btn btn-primary" (click)="onSuggestUserName()" >
+            Suggest User Name and Override all form controls
+          </button><br><br>
+          <button class="btn btn-primary" (click)="onPatchUserName()">
+            Suggest User Name and Only patch user name
+          </button>
+
+        </div>
         <div class="form-group" #email>
           <label for="email">Email</label>
           <input
@@ -33,6 +42,7 @@
         </div>
       </div> <!--dknote 181: set up a group in a form-->
       <p *ngIf="!userGroupRef.valid && userGroupRef.touched">User Group Is not valid</p>
+
       <div class="form-group">
         <label for="secret">Secret Question</label>
         <select name="secret"
@@ -43,6 +53,7 @@
           <option value="teacher">Your first teacher?</option>
         </select>
       </div>
+
       <div class="form-group">
         <textarea
           name="answer"
@@ -53,9 +64,11 @@
         </textarea>
         Your Answer: {{myAnswer}}
       </div>
+
       <div class="form-group" *ngFor="let g of genders">
         <input type="radio" name="gender" [value]="g" ngModel required>{{g}}
       </div>
+
       <div class="form-group">
         <button
           class="btn btn-primary"
