@@ -12,7 +12,7 @@ export class UserComponent implements OnInit , OnDestroy{
   user:{id:number,name:string};
   paramSubscription:Subscription;
   msg:string;
-  msgSubscription:Subscription;
+
 
   constructor(
     private route:ActivatedRoute,
@@ -58,7 +58,7 @@ export class UserComponent implements OnInit , OnDestroy{
     //dknote 123: this is good practice to unsubscribe from memory:
     // but not a must in this case, because angular has done below behind the scene
     this.paramSubscription.unsubscribe();
-    this.msgSubscription.unsubscribe();
+
   }
 
   // dknote 128: use relative path to navigate to edit page

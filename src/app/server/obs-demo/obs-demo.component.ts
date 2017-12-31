@@ -24,13 +24,18 @@ export class ObsDemoComponent implements OnInit, OnDestroy {
 
   // dknote 159: build first demo for observable
   demo1() {
-    let myNumbers = Observable.interval(1000);
+    let myNumbers = Observable.interval(1000)
+      .map(
+        (data:number)=>{
+          return data*3;
+        }
+      );
 
     this.numSub = myNumbers.subscribe(
       (num: number) => {
         console.log(num);
-        if (num === 10)
-          this.numSub.unsubscribe();
+        // if (num === 10)
+        //   this.numSub.unsubscribe();
       }
     );
   }
