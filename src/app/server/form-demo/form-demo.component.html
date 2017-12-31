@@ -40,6 +40,16 @@
          </select>
       </div>
       <div class="form-group">
+        <textarea
+          name="answer"
+          rows="3"
+          class="form-control"
+          [(ngModel)] = "myAnswer"
+        > <!--dknote: two way binding to a control-->
+        </textarea>
+        Your Answer: {{myAnswer}}
+      </div>
+      <div class="form-group">
         <button
           class="btn btn-primary"
           type="submit"

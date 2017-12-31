@@ -9,6 +9,7 @@ import {NgForm} from '@angular/forms';
 export class FormDemoComponent implements OnInit {
   @ViewChild('f') myForm: NgForm;
   defaultSecret = 'teacher';
+  myAnswer:string;
 
   constructor() {
   }
