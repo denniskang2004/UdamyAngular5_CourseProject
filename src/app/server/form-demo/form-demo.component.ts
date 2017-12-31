@@ -10,6 +10,7 @@ export class FormDemoComponent implements OnInit {
   @ViewChild('f') myForm: NgForm;
   defaultSecret = 'teacher';
   myAnswer:string;
+  genders = ['male','female'];
 
   constructor() {
   }

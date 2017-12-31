@@ -3,32 +3,36 @@
 
     <!--dknote 172: event handle by (ngSubmit), hook of 'ngForm'-->
     <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-      <div class="form-group">
-        <label for="username">User Name</label>
-        <input
-          id="username"
-          type="text"
-          class="form-control"
-          ngModel name="username"
-          required
-        >
-        <!--dknote 172: register with angular -->
-      </div>
-      <div class="form-group" #email>
-        <label for="email">Email</label>
-        <input
-          id="email"
-          type="email"
-          ngModel
-          name="email"
-          class="form-control"
-          required
-          #email = 'ngModel'
-        >
-        <span *ngIf="!email.valid && email.touched" class="help-block" style="color: red">Please enter valid email.</span>
-        <!--dknote 175: add "email" validator to check validation. Below is the full list:-->
-        <!--https://angular.io/docs/ts/latest/api/forms/index/Validators-class.html-->
-      </div>
+      <div id="userData" ngModelGroup="userGroup" #userGroupRef="ngModelGroup">
+        <div class="form-group">
+          <label for="username">User Name</label>
+          <input
+            id="username"
+            type="text"
+            class="form-control"
+            ngModel name="username"
+            required
+          >
+          <!--dknote 172: register with angular -->
+        </div>
+        <div class="form-group" #email>
+          <label for="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            ngModel
+            name="email"
+            class="form-control"
+            required
+            #email='ngModel'
+          >
+          <span *ngIf="!email.valid && email.touched" class="help-block"
+                style="color: red">Please enter valid email.</span>
+          <!--dknote 175: add "email" validator to check validation. Below is the full list:-->
+          <!--https://angular.io/docs/ts/latest/api/forms/index/Validators-class.html-->
+        </div>
+      </div> <!--dknote 181: set up a group in a form-->
+      <p *ngIf="!userGroupRef.valid && userGroupRef.touched">User Group Is not valid</p>
       <div class="form-group">
         <label for="secret">Secret Question</label>
         <select name="secret"
@@ -37,17 +41,20 @@
                 [ngModel]="defaultSecret"><!--dknote: default value by one way binding-->
           <option value="pet">Your first Pet?</option>
           <option value="teacher">Your first teacher?</option>
-         </select>
+        </select>
       </div>
       <div class="form-group">
         <textarea
           name="answer"
           rows="3"
           class="form-control"
-          [(ngModel)] = "myAnswer"
+          [(ngModel)]="myAnswer"
         > <!--dknote: two way binding to a control-->
         </textarea>
         Your Answer: {{myAnswer}}
+      </div>
+      <div class="form-group" *ngFor="let g of genders">
+        <input type="radio" name="gender" [value]="g" ngModel required>{{g}}
       </div>
       <div class="form-group">
         <button
