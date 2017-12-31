@@ -2,21 +2,48 @@
   <div class="row col-xs-12">
 
     <!--dknote 172: event handle by (ngSubmit), hook of 'ngForm'-->
-    <form (ngSubmit) ="onSubmit(f)" #f="ngForm">
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
       <div class="form-group">
         <label for="username">User Name</label>
-        <input id="username" type="text" class="form-control"
-               ngModel name="username" > <!--dknote 172: register with angular -->
+        <input
+          id="username"
+          type="text"
+          class="form-control"
+          ngModel name="username"
+          required
+
+        >
+        <!--dknote 172: register with angular -->
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input id="email" type="email" ngModel name="email" class="form-control">
+        <input
+          id="email"
+          type="email"
+          ngModel
+          name="email"
+          class="form-control"
+          required
+          email
+        >
+        <!--dknote 175: add "email" validator to check validation. Below is the full list:-->
+        <!--https://angular.io/docs/ts/latest/api/forms/index/Validators-class.html-->
       </div>
       <div class="form-group">
-        <button class="btn btn-primary" type="submit">
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="!f.valid"> <!--dknote: use state to disable button-->
           Submit
         </button>
       </div>
     </form>
+
+
+  </div>
+  <div class="row col-xs-12">
+    <button class="btn btn-primary" (click)="onClick()">
+      Click Me!
+    </button>
   </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
 
 @Component({
@@ -7,12 +7,19 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./form-demo.component.css']
 })
 export class FormDemoComponent implements OnInit {
+  @ViewChild('f') myForm: NgForm;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
-  onSubmit(form:NgForm){
+
+  onSubmit(form: NgForm) { // dknote : access form by local reference
     console.log(form);
+  }
+
+  onClick() { //dknote: another way to access form by @ViewChild
+    console.log(this.myForm);
   }
 }

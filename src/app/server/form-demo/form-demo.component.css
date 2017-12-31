@@ -1,0 +1,5 @@
+
+/*dknote 177: change css to mark invalid*/
+input.ng-invalid.ng-touched{
+  border: 1px solid red;
+}
