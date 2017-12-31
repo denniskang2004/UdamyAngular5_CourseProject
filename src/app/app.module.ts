@@ -36,6 +36,7 @@ import {UserResolverService} from './server/userdemo/user/user-resolver.service'
 import {NoSelectComponent} from './recipes/recipe-detail/no-select/no-select.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { ObsDemoComponent } from './server/obs-demo/obs-demo.component';
+import {ObsHelperService} from './server/obs-demo/obs-helper.service';
 
 
 
@@ -86,7 +87,8 @@ import { ObsDemoComponent } from './server/obs-demo/obs-demo.component';
     AccountService,//demo only
     appLogging, //demo only
     AuthGuardService, // dknote 134, dknote 135: protect route using guard
-    UserResolverService
+    UserResolverService,
+    ObsHelperService //dknote 163: use ReactiveX Subject (both Observable and Observer)
   ],
   bootstrap: [AppComponent]
 })

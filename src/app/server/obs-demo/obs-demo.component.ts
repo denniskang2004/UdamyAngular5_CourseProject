@@ -3,6 +3,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx';//dknote 159: build use rxjs package
 import {Subscription} from 'rxjs/Subscription';
 import {Observer} from 'rxjs/Observer';
+import {ObsHelperService} from './obs-helper.service';
 
 @Component({
   selector: 'app-obs-demo',
@@ -13,7 +14,7 @@ export class ObsDemoComponent implements OnInit, OnDestroy {
   numSub: Subscription;
   strSub: Subscription;
 
-  constructor() {
+  constructor(private obsService:ObsHelperService) {
   }
 
   ngOnInit() {
@@ -71,5 +72,9 @@ export class ObsDemoComponent implements OnInit, OnDestroy {
     this.strSub.unsubscribe();
 
     //dknote 163: learn more about observable: reactivex.io
+  }
+
+  onSendMsg(){
+    this.obsService.obsHelper.next('hi from Observable demo page');
   }
 }

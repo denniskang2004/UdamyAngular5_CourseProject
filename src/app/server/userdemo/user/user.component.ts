@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
+import {ObsHelperService} from '../../obs-demo/obs-helper.service';
 
 @Component({
   selector: 'app-user',
@@ -10,10 +11,13 @@ import {Subscription} from 'rxjs/Subscription';
 export class UserComponent implements OnInit , OnDestroy{
   user:{id:number,name:string};
   paramSubscription:Subscription;
+  msg:string;
+  msgSubscription:Subscription;
 
   constructor(
     private route:ActivatedRoute,
-    private router:Router
+    private router:Router,
+    private obsService:ObsHelperService
   ) { }
 
   ngOnInit() {
@@ -42,12 +46,19 @@ export class UserComponent implements OnInit , OnDestroy{
     console.log('User  Param:'+param);
 
 
+    // dknote 163: use ReactiveX Subject
+    this.obsService.obsHelper.subscribe(
+      (data:string)=>{
+        this.msg = data;
+      }
+    )
   }
 
   ngOnDestroy(){
     //dknote 123: this is good practice to unsubscribe from memory:
     // but not a must in this case, because angular has done below behind the scene
     this.paramSubscription.unsubscribe();
+    this.msgSubscription.unsubscribe();
   }
 
   // dknote 128: use relative path to navigate to edit page
