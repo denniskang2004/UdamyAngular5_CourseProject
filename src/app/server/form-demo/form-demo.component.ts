@@ -27,6 +27,8 @@ export class FormDemoComponent implements OnInit {
     console.log(form);
     this.user.username = this.myForm.value.userGroup.username;
     this.user.email= this.myForm.value.userGroup.email;
+
+    this.myForm.reset();//dknote 185: reset all flags and states
   }
 
   onClick() { //dknote: another way to access form by @ViewChild
