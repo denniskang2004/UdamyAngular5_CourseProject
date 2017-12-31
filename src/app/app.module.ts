@@ -5,7 +5,7 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {serverComponent} from './server/server.component';
 import {ServersComponent} from './servers/servers.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
@@ -38,6 +38,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
 import { ObsDemoComponent } from './server/obs-demo/obs-demo.component';
 import {ObsHelperService} from './server/obs-demo/obs-helper.service';
 import { FormDemoComponent } from './server/form-demo/form-demo.component';
+import { FormDemoReactiveComponent } from './server/form-demo-reactive/form-demo-reactive.component';
 
 
 
@@ -71,7 +72,8 @@ import { FormDemoComponent } from './server/form-demo/form-demo.component';
     NoSelectComponent,
     RecipeEditComponent,
     ObsDemoComponent,
-    FormDemoComponent
+    FormDemoComponent,
+    FormDemoReactiveComponent
 
   ],
   imports: [
@@ -80,7 +82,8 @@ import { FormDemoComponent } from './server/form-demo/form-demo.component';
 
     // dknote 114: register routes
     // RouterModule.forRoot(appRoutes) //dknote 132: separate to another module for routing
-    AppRoutingModule //dknote 132: import routings
+    AppRoutingModule, //dknote 132: import routings
+    ReactiveFormsModule // dknote 187: set up reactive form
   ],
   // dknote 101: add to appModule to make available to whole app, even to service
   providers: [

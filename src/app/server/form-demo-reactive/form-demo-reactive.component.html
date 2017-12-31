@@ -1,0 +1,43 @@
+<script src="form-demo-reactive.component.ts"></script>
+<div class="container">
+  <div class="row col-xs-12">
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()"> <!--dknote: sync to ts code form variable-->
+      <div id="userData">
+        <div class="form-group">
+          <label for="username">User Name</label>
+          <input
+            id="username"
+            type="text"
+            class="form-control"
+            formControlName="username"><!--dknote: connect to ts code-->
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            ngModel
+            name="email"
+            class="form-control"
+            formControlName="email"><!--dknote: connect to ts code-->
+        </div>
+      </div>
+      <div class="form-group" *ngFor="let g of genders">
+        <input
+          type="radio"
+          name="gender"
+          [value]="g"
+          formControlName="gender"><!--dknote: connect to ts code-->
+        {{g}}
+      </div>
+      <div class="form-group">
+        <button
+          class="btn btn-primary"
+          type="submit"
+          >Submit
+        </button>
+      </div>
+    </form>
+  </div>
+
+</div>
