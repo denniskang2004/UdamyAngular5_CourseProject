@@ -17,14 +17,16 @@ export class FormDemoReactiveComponent implements OnInit {
   ngOnInit() {
     // dknote 188: create / add controls to reactive forms
     this.signupForm = new FormGroup({
-      'username': new FormControl(
-        null,
-        Validators.required // dknote: add validation
-      ),
-      'email' : new FormControl(
-        null,
-        [Validators.required,Validators.email]//dknote: add validation
-      ),
+      'userData': new FormGroup({
+        'username': new FormControl(
+          null,
+          Validators.required // dknote: add validation
+        ),
+        'email' : new FormControl(
+          null,
+          [Validators.required,Validators.email]//dknote: add validation
+        )
+      }),
       'gender' : new FormControl('male')
     })
   }
