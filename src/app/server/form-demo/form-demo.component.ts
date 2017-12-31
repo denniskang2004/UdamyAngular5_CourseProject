@@ -9,8 +9,12 @@ import {NgForm} from '@angular/forms';
 export class FormDemoComponent implements OnInit {
   @ViewChild('f') myForm: NgForm;
   defaultSecret = 'teacher';
-  myAnswer:string;
-  genders = ['male','female'];
+  myAnswer: string;
+  genders = ['male', 'female'];
+  user= {
+    username:'',
+    email:''
+  };
 
   constructor() {
   }
@@ -18,8 +22,11 @@ export class FormDemoComponent implements OnInit {
   ngOnInit() {
   }
 
+  //<!--dknote 184: use the form data-->
   onSubmit(form: NgForm) { // dknote : access form by local reference
     console.log(form);
+    this.user.username = this.myForm.value.userGroup.username;
+    this.user.email= this.myForm.value.userGroup.email;
   }
 
   onClick() { //dknote: another way to access form by @ViewChild
@@ -27,28 +34,28 @@ export class FormDemoComponent implements OnInit {
   }
 
   // dknote 183: setValue will override all values for all controls
-  onSuggestUserName(){
+  onSuggestUserName() {
     this.myForm.setValue(
       {
-        userGroup:{
-          email:'default@gmail.com',
-          username:'superUser'
+        userGroup: {
+          email: 'default@gmail.com',
+          username: 'superUser'
         },
-        secret:'pet',
-        answer:'',
-        gender:'male'
+        secret: 'pet',
+        answer: '',
+        gender: 'male'
       }
-    )
+    );
   }
 
   // dknote 183: patch value can set value for one control!
-  onPatchUserName(){
+  onPatchUserName() {
     this.myForm.form.patchValue(
       {
-        userGroup:{
-          email:'default@gmail.com'
+        userGroup: {
+          email: 'default@gmail.com'
         }
       }
-    )
+    );
   }
 }

@@ -16,9 +16,10 @@
           <!--dknote 172: register with angular -->
         </div>
         <div class="form-group">
-          <button class="btn btn-primary" (click)="onSuggestUserName()" >
+          <button class="btn btn-primary" (click)="onSuggestUserName()">
             Suggest User Name and Override all form controls
-          </button><br><br>
+          </button>
+          <br><br>
           <button class="btn btn-primary" (click)="onPatchUserName()">
             Suggest User Name and Only patch user name
           </button>
@@ -77,13 +78,21 @@
           Submit
         </button>
       </div>
+      <div class="row col-xs-12">
+        <button class="btn btn-primary" (click)="onClick()">
+          Click Me!
+        </button>
+      </div>
     </form>
+    <hr>
+    <!--dknote 184: use the form data-->
+    <div class="row col-xs-12">
+      <h3>Your Data</h3>
+      <p>User Name: {{user.username}}</p>
+      <p>Email: {{user.email}}</p>
 
+    </div>
 
   </div>
-  <div class="row col-xs-12">
-    <button class="btn btn-primary" (click)="onClick()">
-      Click Me!
-    </button>
-  </div>
+
 </div>
