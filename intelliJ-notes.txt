@@ -8,6 +8,8 @@ Alt + F12: show terminal window
 
 Alt + 1 : project window/view
 
+Alt + enter: find the reference of a library.
+
 
 Parent component Pass data to component thru Custom Property
 1. child component define property using @Input()

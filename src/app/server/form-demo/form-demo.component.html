@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row col-xs-12">
+
+    <!--dknote 172: event handle by (ngSubmit), hook of 'ngForm'-->
+    <form (ngSubmit) ="onSubmit(f)" #f="ngForm">
+      <div class="form-group">
+        <label for="username">User Name</label>
+        <input id="username" type="text" class="form-control"
+               ngModel name="username" > <!--dknote 172: register with angular -->
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" type="email" ngModel name="email" class="form-control">
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

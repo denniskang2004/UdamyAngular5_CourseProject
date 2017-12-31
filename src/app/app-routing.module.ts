@@ -15,6 +15,7 @@ import {RecipeDetailComponent} from './recipes/recipe-detail/recipe-detail.compo
 import {NoSelectComponent} from './recipes/recipe-detail/no-select/no-select.component';
 import {RecipeEditComponent} from './recipes/recipe-edit/recipe-edit.component';
 import {ObsDemoComponent} from './server/obs-demo/obs-demo.component';
+import {FormDemoComponent} from './server/form-demo/form-demo.component';
 
 // dknote 114: add routes/routing
 const appRoutes: Routes = [
@@ -47,6 +48,7 @@ const appRoutes: Routes = [
   {path: 'not-permitted', component: NotPermittedComponent},
   {path: 'not-found', component: PageNotFoundComponent, data: {message: 'page not found message here static passed'}}, //dknote 130: define page not found //// dknote 138: get static data from route config
   {path: 'obs', component: ObsDemoComponent},
+  {path: 'forms', component: FormDemoComponent},
   {path: '**', redirectTo: 'not-found'}//dknote 130: put wildcard ** in last route declaration, redirect to this page
 ];
 

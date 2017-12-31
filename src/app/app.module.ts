@@ -37,6 +37,7 @@ import {NoSelectComponent} from './recipes/recipe-detail/no-select/no-select.com
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { ObsDemoComponent } from './server/obs-demo/obs-demo.component';
 import {ObsHelperService} from './server/obs-demo/obs-helper.service';
+import { FormDemoComponent } from './server/form-demo/form-demo.component';
 
 
 
@@ -69,7 +70,8 @@ import {ObsHelperService} from './server/obs-demo/obs-helper.service';
     NotPermittedComponent,
     NoSelectComponent,
     RecipeEditComponent,
-    ObsDemoComponent
+    ObsDemoComponent,
+    FormDemoComponent
 
   ],
   imports: [
