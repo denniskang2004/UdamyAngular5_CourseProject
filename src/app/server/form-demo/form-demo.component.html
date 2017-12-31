@@ -29,7 +29,16 @@
         <!--dknote 175: add "email" validator to check validation. Below is the full list:-->
         <!--https://angular.io/docs/ts/latest/api/forms/index/Validators-class.html-->
       </div>
-
+      <div class="form-group">
+        <label for="secret">Secret Question</label>
+        <select name="secret"
+                id="secret"
+                class="form-control"
+                [ngModel]="defaultSecret"><!--dknote: default value by one way binding-->
+          <option value="pet">Your first Pet?</option>
+          <option value="teacher">Your first teacher?</option>
+         </select>
+      </div>
       <div class="form-group">
         <button
           class="btn btn-primary"
