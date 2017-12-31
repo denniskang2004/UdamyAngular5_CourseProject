@@ -38,6 +38,14 @@
         {{g}}
       </div>
       <div class="form-group">
+        <button class="btn btn-default" type="button" (click)="onAddHobby()">
+          Add Hobby
+        </button>
+      </div>
+      <div class="form-group" *ngFor="let fc of signupForm.get('hobbies').controls; let i=index" formArrayName="hobbies" > <!--dknote: sync with form array in ts-->
+        <input type="text" class="form-control" [formControlName]="i">
+      </div>
+      <div class="form-group">
         <button
           class="btn btn-primary"
           type="submit"

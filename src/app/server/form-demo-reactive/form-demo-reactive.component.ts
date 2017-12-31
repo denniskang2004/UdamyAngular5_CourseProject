@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-form-demo-reactive',
@@ -27,12 +27,19 @@ export class FormDemoReactiveComponent implements OnInit {
           [Validators.required,Validators.email]//dknote: add validation
         )
       }),
-      'gender' : new FormControl('male')
-    })
+      'gender' : new FormControl('male'),
+      'hobbies' : new FormArray([]) //dknote: add form array as container for dynamically created form controls
+
+    });
+
   }
 
   onSubmit(){
     console.log(this.signupForm);
+  }
+
+  onAddHobby(){
+    (<FormArray>this.signupForm.get('hobbies')).push(new FormControl(null,Validators.required));
   }
 
 }
