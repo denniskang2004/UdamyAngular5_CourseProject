@@ -7,8 +7,11 @@
             class="btn btn-success"
             [disabled]="!editForm.valid"
             (click)="onEditAdd()"
-          >Save</button>
-          <button class="btn btn-danger">Cancel</button>
+          >{{editMode?'Update':'Save'}}</button>
+          <button
+            class="btn btn-danger"
+            (click)="onCancel()"
+          >Cancel</button>
         </div>
       </div>
       <br>

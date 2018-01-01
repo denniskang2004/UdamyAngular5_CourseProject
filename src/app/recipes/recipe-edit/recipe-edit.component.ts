@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {RecipesService} from '../recipes.service';
 import {Ingredient} from '../../shared/ingredient.model';
@@ -16,8 +16,11 @@ export class RecipeEditComponent implements OnInit {
   editMode: boolean;
 
 
-  constructor(private route: ActivatedRoute,
-              private recipeService: RecipesService) {
+  constructor(
+    private route: ActivatedRoute,
+    private recipeService: RecipesService,
+    private router:Router
+    ) {
   }
 
   ngOnInit() {
@@ -85,9 +88,15 @@ export class RecipeEditComponent implements OnInit {
     } else {
       this.recipeService.addRecipe(this.editForm.value);
     }
+
+    // dknote 216: save/edit will navigate back to details
+    this.router.navigate(['../'],{relativeTo:this.route});
   }
 
   onSubmit() {
 
+  }
+  onCancel(){
+    this.router.navigate(['../'],{relativeTo:this.route});
   }
 }
