@@ -11,9 +11,13 @@
             class="form-control"
             formControlName="username"><!--dknote: connect to ts code-->
           <!--dknote: use the path of nested formgroup-->
-          <span *ngIf="!signupForm.get('userData.username').valid && signupForm.get('userData.username').touched"> <!--dknote: use 'get' to access control -->
-            Please enter valid user name
-          </span>
+          <!--<span *ngIf="!signupForm.get('userData.username').valid && signupForm.get('userData.username').touched"> &lt;!&ndash;dknote: use 'get' to access control &ndash;&gt;-->
+            <!--Please enter valid user name-->
+          <!--</span>-->
+
+          <!--dknote 196: use the control's errors (where validation warning will show) to display custom message-->
+          <span *ngIf="signupForm.get('userData.username').errors && signupForm.get('userData.username').errors['nameIsForbidden']">Name is already in use!</span>
+          <span *ngIf="signupForm.get('userData.username').errors && signupForm.get('userData.username').errors['required'] && signupForm.get('userData.username').touched">Field is required!</span>
         </div>
         <div class="form-group">
           <label for="email">Email</label>
