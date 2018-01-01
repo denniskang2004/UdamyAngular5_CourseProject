@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-form-demo-reactive',
@@ -27,7 +28,8 @@ export class FormDemoReactiveComponent implements OnInit {
         ),
         'email': new FormControl(
           null,
-          [Validators.required, Validators.email]//dknote: add validation
+          [Validators.required, Validators.email],//dknote: add validation
+          this.validateForbiddenEmail // dknote 197: add Async validator as 3rd parameter
         )
       }),
       'gender': new FormControl('male'),
@@ -55,5 +57,20 @@ export class FormDemoReactiveComponent implements OnInit {
     else {
       return null; // important: return null, not false
     }
+  }
+
+  // dknote 197: Async validator
+  validateForbiddenEmail(control: FormControl): Promise<any> | Observable<any> {
+    const promise = new Promise<any>((resolve, reject) => {
+        setTimeout(() => {
+          if (control.value === 'test@test.com') {
+            resolve({'emailIsFobidden': true});
+          } else {
+            resolve(null);
+          }
+        }, 2000);
+      }
+    );
+    return promise;
   }
 }

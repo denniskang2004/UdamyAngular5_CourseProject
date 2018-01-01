@@ -28,9 +28,14 @@
             name="email"
             class="form-control"
             formControlName="email"><!--dknote: connect to ts code-->
-          <span *ngIf="!signupForm.get('userData.email').valid &&signupForm.get('userData.email').touched"> <!--dknote: use 'get' to access control -->
-            Please enter valid email
-          </span>
+          <!--<span *ngIf="!signupForm.get('userData.email').valid &&signupForm.get('userData.email').touched"> &lt;!&ndash;dknote: use 'get' to access control &ndash;&gt;-->
+            <!--Please enter valid email-->
+          <!--</span>-->
+
+          <!--// dknote 197: Async validator-->
+          <span *ngIf="signupForm.get('userData.email').errors && signupForm.get('userData.email').errors['email']">Please enter valid email</span>
+          <span *ngIf="signupForm.get('userData.email').errors && signupForm.get('userData.email').errors['emailIsFobidden']">Email is already in use</span>
+
         </div>
       </div>
       <div class="form-group" *ngFor="let g of genders">
