@@ -47,7 +47,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   }
 
   // dknote 80: use the ViewChild
-  onAddItem(form: NgForm) {
+  onAddItem() {
     // dknote 108: use shopping list service
     // this.itemAdded.emit(
     //   new Ingredient(this.inputName.nativeElement.value,this.inputAmount.nativeElement.value)
@@ -57,13 +57,26 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
     // this.shopService.addShoppingItem(newIngredient);
 
     // dknote 201/202: change to use template driven form:
-    let newIngredient = new Ingredient(form.value.name, form.value.amount);
+    let newIngredient = new Ingredient(this.editForm.value.name, this.editForm.value.amount);
     if (this.editMode) {
       this.shopService.updateShoppingItem(this.shopItemIndexEdited, newIngredient);
     } else {
       this.shopService.addShoppingItem(newIngredient);
     }
 
+    // dknote 206: reset form after edit/add
+    this.editForm.reset();
+    this.editMode = false;
+  }
 
+  onClear(){
+    // dknote 206: reset form after edit/add
+    this.editForm.reset();
+    this.editMode = false;
+  }
+
+  onDelete(){
+    this.shopService.deleteShoppingItem(this.shopItemIndexEdited);
+    this.onClear();
   }
 }
