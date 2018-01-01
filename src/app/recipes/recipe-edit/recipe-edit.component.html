@@ -24,6 +24,7 @@
               class="form-control"
               id="name"
               formControlName="name"
+              #name
             >
           </div>
         </div>
@@ -37,13 +38,19 @@
               class="form-control"
               id="imagePath"
               formControlName="imagePath"
+              #imagePath
             >
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <img src="" alt="" class="img-responsive">
+          <img
+            [src]="imagePath.value"
+            [alt]="name.value"
+            class="img-responsive"
+            style = "max-height: 300px"
+          >
         </div>
       </div>
       <div class="row">

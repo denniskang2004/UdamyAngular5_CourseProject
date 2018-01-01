@@ -14,7 +14,7 @@ export class RecipeEditComponent implements OnInit {
   isNew: boolean;
   editForm: FormGroup;
   editMode: boolean;
-
+  imagePathInput:string;
 
   constructor(
     private route: ActivatedRoute,
@@ -32,6 +32,8 @@ export class RecipeEditComponent implements OnInit {
         this.initForm();
       }
     );
+
+
   }
 
   initForm() {
