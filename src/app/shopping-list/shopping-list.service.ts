@@ -10,6 +10,7 @@ export class ShoppingListService {
   //newShoppingItem = new EventEmitter<Ingredient>();
   //shoppingListChanged = new EventEmitter<Ingredient[]>();
   shoppingListChanged = new Subject<Ingredient[]>(); //dknote 166: use ReactiveX Subject
+  shoppingListEditing = new Subject<number>(); //dknote 203~205
 
   public getShoppingList() {
     return this.ingredients.slice();
@@ -28,5 +29,14 @@ export class ShoppingListService {
 
     //this.shoppingListChanged.emit(this.ingredients);
     this.shoppingListChanged.next(this.ingredients);//dknote 166
+  }
+
+  public getShoppingItem(index:number){
+    return this.ingredients.slice()[index];
+  }
+
+  public updateShoppingItem(index:number, newIngredient:Ingredient){
+    this.ingredients[index] = newIngredient;
+    this.shoppingListChanged.next(this.ingredients);
   }
 }

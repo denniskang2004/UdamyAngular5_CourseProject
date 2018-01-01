@@ -12,6 +12,7 @@ import {Subscription} from 'rxjs/Subscription';
 export class ShoppingListComponent implements OnInit, OnDestroy {
   ingredients: Ingredient[];// dknote 107: use shopping-list service instead
   shopServiceSubscription:Subscription;
+  editMode = false;
 
   constructor(private shopService:ShoppingListService) { }
 
@@ -34,5 +35,11 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   // dknote 166: use ReactiveX Subject, must handled by ourselves
   ngOnDestroy(){
     this.shopServiceSubscription.unsubscribe();
+  }
+
+  // dknote 203~205
+  onEdit(index:number){
+    this.editMode = true;
+    this.shopService.shoppingListEditing.next(index);
   }
 }
