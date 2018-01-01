@@ -37,6 +37,20 @@ export class FormDemoReactiveComponent implements OnInit {
 
     });
 
+    // dknote 198: react to form's Status changes, Value changes
+    // 2 observable we can watch!
+    this.signupForm.statusChanges.subscribe(
+      (status)=>{
+        console.log('status changed to: '+status);
+      }
+    );
+    this.signupForm.valueChanges.subscribe(
+      (value)=>{
+        console.log('value changed to: '+JSON.stringify(value));
+      }
+    );
+
+
   }
 
   onSubmit() {
