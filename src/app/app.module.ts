@@ -39,6 +39,7 @@ import { ObsDemoComponent } from './server/obs-demo/obs-demo.component';
 import {ObsHelperService} from './server/obs-demo/obs-helper.service';
 import { FormDemoComponent } from './server/form-demo/form-demo.component';
 import { FormDemoReactiveComponent } from './server/form-demo-reactive/form-demo-reactive.component';
+import {HttpModule} from '@angular/http';
 
 
 
@@ -79,6 +80,7 @@ import { FormDemoReactiveComponent } from './server/form-demo-reactive/form-demo
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,//dknote 234: http service
 
     // dknote 114: register routes
     // RouterModule.forRoot(appRoutes) //dknote 132: separate to another module for routing

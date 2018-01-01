@@ -8,9 +8,27 @@
 
   </div>
   <div class="row">
+    <button
+      class="btn btn-primary"
+      type="button"
+      (click)="onAddUser()"
+    >Add User</button>
+  </div>
+  <br>
+  <br>
+  <div class="row">
+    <button
+      class="btn btn-primary"
+      type="button"
+      (click)="onSaveUser()"
+    >Save User to FireBase</button>
+  </div>
+  <div class="row">
     <div class="row col-xs-6">
       <ul class="list-group">
-        <li class="list-group-item" *ngFor="let u of users;let i = index">
+        <li
+          class="list-group-item"
+          *ngFor="let u of users;let i = index">
           <!--dknote 128: use the route parameter to user page with param passed-->
           <!--dknote 128: make query parameter dynamic based on index of list -->
           <a
