@@ -50,6 +50,9 @@ export class FormDemoReactiveComponent implements OnInit {
       }
     );
 
+    // dknote 199: setValue and PatchValue still work for FormGroup
+    // this.signupForm.setValue();
+    // this.signupForm.patchValue();
 
   }
 
