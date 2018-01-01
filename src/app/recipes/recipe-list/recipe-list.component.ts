@@ -22,6 +22,13 @@ export class RecipeListComponent implements OnInit {
   ngOnInit() {
     // dknote 105: use service
     this.recipes = this.recipeService.getRecipes();
+
+    // dknote 215: monitor changes of the list
+    this.recipeService.recipeChanged.subscribe(
+      (recipes:Recipe[])=>{
+        this.recipes = recipes;
+      }
+    )
   }
 
   // onSelectItem(item:Recipe){

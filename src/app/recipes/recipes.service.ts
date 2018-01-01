@@ -1,9 +1,11 @@
 import {Recipe} from './recipe.model';
 import {EventEmitter} from '@angular/core';
 import {Ingredient} from '../shared/ingredient.model';
+import {Subject} from 'rxjs/Subject';
 
 export class RecipesService{
   recipeSelected = new EventEmitter<Recipe>(); // dknote 106: add an eventEmitter to communicate across component
+  recipeChanged = new Subject<Recipe[]>();
 
   private recipes: Recipe[] = [
     new Recipe(
@@ -38,6 +40,12 @@ export class RecipesService{
 
   public addRecipe(rp:Recipe){
     this.recipes.push(rp);
+    this.recipeChanged.next(this.recipes.slice());
+  }
+
+  public updateRecipe(index:number, newRecipe:Recipe){
+    this.recipes[index] = newRecipe;
+    this.recipeChanged.next(this.recipes.slice());
   }
 
   public getRecipes(){

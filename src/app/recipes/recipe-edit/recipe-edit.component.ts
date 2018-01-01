@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
-import {FormArray, FormControl, FormGroup} from '@angular/forms';
+import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {RecipesService} from '../recipes.service';
 import {Ingredient} from '../../shared/ingredient.model';
 
@@ -10,57 +10,84 @@ import {Ingredient} from '../../shared/ingredient.model';
   styleUrls: ['./recipe-edit.component.css']
 })
 export class RecipeEditComponent implements OnInit {
-  id:number;
-  isNew:boolean;
+  id: number;
+  isNew: boolean;
   editForm: FormGroup;
-  editMode:boolean;
+  editMode: boolean;
 
 
-  constructor(
-    private route:ActivatedRoute,
-    private recipeService:RecipesService) { }
+  constructor(private route: ActivatedRoute,
+              private recipeService: RecipesService) {
+  }
 
   ngOnInit() {
     this.route.params.subscribe(
-      (param:Params)=>{
+      (param: Params) => {
         this.id = param['id'];
-        this.isNew = this.id==null;
-        this.editMode = this.id!==null;
+        this.isNew = this.id == null;
+        this.editMode = this.id ? true : false;
         this.initForm();
       }
-    )
+    );
   }
 
-  initForm(){
+  initForm() {
     let name = '';
     let description = '';
     let imagePath = '';
-    let ingredents = new FormArray([]);
+    let ingredients = new FormArray([]);
 
-    if(this.editMode){
+    if (this.editMode) {
       let recipe = this.recipeService.getRecipe(this.id);
       name = recipe.name;
       description = recipe.description;
       imagePath = recipe.imagePath;
 
       // dknote: populate FormArray from existing ingredients of a recipe
-      if(recipe.ingredients){
-        for(let ing of recipe.ingredients){
-          ingredents.push(new FormGroup({
-            name:new FormControl(ing.name),
-            amount:new FormControl(ing.amount)
-          }))
+      if (recipe.ingredients) {
+        for (let ing of recipe.ingredients) {
+          ingredients.push(new FormGroup({
+            name: new FormControl(ing.name, Validators.required),
+            amount: new FormControl(ing.amount, [
+              Validators.required,
+              Validators.pattern('^[1-9]+[0-9]*$')])
+          }));
         }
       }
 
     }
 
     this.editForm = new FormGroup({
-      'name': new FormControl(name),
-      'imagePath': new FormControl(imagePath),
-      'description': new FormControl(description),
-      'ingredients': ingredents
+      'name': new FormControl(name, Validators.required),
+      'imagePath': new FormControl(imagePath, Validators.required),
+      'description': new FormControl(description, Validators.required),
+      'ingredients': ingredients
     });
   }
 
+  onAddIngredient() {
+    (<FormArray>this.editForm.get('ingredients')).push(new FormGroup(
+      {
+        name: new FormControl(null),
+        amount: new FormControl(null)
+      }
+    ));
+  }
+
+  onRemoveIngredient(index: number) {
+    (<FormArray>this.editForm.get('ingredients')).removeAt(index);
+  }
+
+  onEditAdd() {
+    if (this.editMode) {
+      //dknote 215: directly use the form.value as entity
+      this.recipeService.updateRecipe(this.id, this.editForm.value);
+    } else {
+      this.recipeService.addRecipe(this.editForm.value);
+    }
+  }
+
+  onSubmit() {
+
+  }
 }

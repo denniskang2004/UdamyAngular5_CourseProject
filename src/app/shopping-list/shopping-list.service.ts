@@ -44,4 +44,6 @@ export class ShoppingListService {
     this.ingredients.splice(index,1);
     this.shoppingListChanged.next(this.ingredients);
   }
+
+
 }
