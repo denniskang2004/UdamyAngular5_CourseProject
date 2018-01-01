@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
+import {Headers, Http} from '@angular/http';
 
 
 //dknote 234: used for Http service
@@ -13,8 +13,10 @@ export class UserService{
 
   // dknote: save data to firebase
   storeUser(users:any[]){
+    const headers = new Headers({'Content-Type':'applicatoin/json'})
+
     // dknote: this is observable returned, so need to subscribe
-    return this.httpService.post(this.URL, users);
+    return this.httpService.post(this.URL, users,{headers:headers});
   }
 
 
