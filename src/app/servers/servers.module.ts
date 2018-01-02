@@ -16,10 +16,15 @@ import {ServersRoutingModule} from './servers-routing.module';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
+import {ServersComponent} from './servers.component';
+import {serverComponent} from '../server/server.component';
+import {AbcComponent} from './abc.component';
 
 @NgModule({
   declarations:[
-
+    AbcComponent,
+    serverComponent,
+    ServersComponent,
     UserdemoComponent,
     HomedemoComponent,
     InformationComponent,

@@ -22,8 +22,6 @@ import {AuthGuardService} from './auth-guard.service';
 import {UserResolverService} from './server/userdemo/user/user-resolver.service';
 import {ObsHelperService} from './server/obs-demo/obs-helper.service';
 import {HttpModule} from '@angular/http';
-import { SignupComponent } from './auth/signup/signup.component';
-import { SigninComponent } from './auth/signin/signin.component';
 import {AuthService} from './auth/auth.service';
 import {AuthGuardService2} from './auth/auth-guard.service';
 import {RecipesModule} from './recipes/recipes.module';
@@ -31,28 +29,19 @@ import {SharedModule} from './shared/shared.module';
 import {ServersModule} from './servers/servers.module';
 import {AbcComponent} from './servers/abc.component';
 import {AuthModule} from './auth/auth.module';
-
-
-
+import {ShoppingListModule} from './shopping-list/shopping-list.module';
 
 // dknote: 15.2: register new component here (demo in lecture 16)
 @NgModule({
   declarations: [
     AppComponent,
-    serverComponent,
-    ServersComponent,
     HeaderComponent,
     // RecipesComponent, //dknote 265: move to feature module
     // RecipeListComponent,//dknote 265: move to feature module
     // RecipeItemComponent,//dknote 265: move to feature module
     // RecipeDetailComponent,//dknote 265: move to feature module
-    ShoppingListComponent,
-    ShoppingEditComponent, // register here
-    BasicHightlightDirective,
-    BetterHightlightDirective,
-    ResponsiveHighlightDirective,
-    UnlessDirective, // course demo directive
-    AbcComponent,
+    // ShoppingListComponent,
+    // ShoppingEditComponent, // register here
     // AppDropdownDirective,//dknote 265: move to feature module
     //RecipeEditComponent,//dknote 265: move to feature module
     // SignupComponent,
@@ -71,7 +60,8 @@ import {AuthModule} from './auth/auth.module';
     RecipesModule,
     SharedModule,
     ServersModule,
-    AuthModule
+    AuthModule,
+    ShoppingListModule,
   ],
   // dknote 101: add to appModule to make available to whole app, even to service
   providers: [
