@@ -19,5 +19,8 @@ export class UserService{
     return this.httpService.post(this.URL, users,{headers:headers});
   }
 
+  getUser(){
+    return this.httpService.get(this.URL);
+  }
 
 }

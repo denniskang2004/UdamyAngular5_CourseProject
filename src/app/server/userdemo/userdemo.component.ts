@@ -1,8 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
 import {ObsHelperService} from '../obs-demo/obs-helper.service';
 import {Subscription} from 'rxjs/Subscription';
 import {UserService} from './user.service';
+import {Response} from '@angular/http';
 
 @Component({
   selector: 'app-userdemo',
@@ -50,11 +50,25 @@ export class UserdemoComponent implements OnInit, OnDestroy {
 
   }
 
-  // dknote 234: http service
+  // dknote 234: http service POST
   onSaveUser(){
     this.userService.storeUser(this.users).subscribe(
       (response)=>{
         console.log(response)
+      },
+      (error)=>{
+        console.log(error)
+      }
+    )
+  }
+
+  //dknote 236: http service GET
+  onGetUser(){
+    this.userService.getUser().subscribe(
+      (response: Response )=>{
+        //console.log(response)
+        const data = response.json();//dknote 236: convert to java object
+        console.log(data);
       },
       (error)=>{
         console.log(error)
