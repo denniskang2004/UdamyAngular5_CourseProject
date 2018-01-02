@@ -3,6 +3,7 @@ import {ObsHelperService} from '../obs-demo/obs-helper.service';
 import {Subscription} from 'rxjs/Subscription';
 import {UserService} from './user.service';
 import {Response} from '@angular/http';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-userdemo',
@@ -18,6 +19,8 @@ export class UserdemoComponent implements OnInit, OnDestroy {
   ];
   msg:string;
   msgSubscription: Subscription;
+  //dknote 241: get Observable and directly apply asyn pipe without subscribing it.
+  appName:Observable< string> =  this.userService.getAppName();;
 
   constructor(
     private obsService:ObsHelperService,
@@ -28,7 +31,9 @@ export class UserdemoComponent implements OnInit, OnDestroy {
       (data:string)=>{
         this.msg = data;
       }
-    )
+    );
+
+
   }
 
   ngOnDestroy(){

@@ -36,4 +36,15 @@ export class UserService{
   overrideUser(users:any[]){
     return this.httpService.put(this.URL, users);
   }
+
+  // dknote 241: get app name
+  getAppName(){
+    return this.httpService.get("https://udamy-angular5-completeguide.firebaseio.com/AppName.json")
+      .map(
+        (response:Response)=> {
+          return response.json();
+
+        }
+      )
+  }
 }
