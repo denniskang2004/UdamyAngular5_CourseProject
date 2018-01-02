@@ -1,17 +1,17 @@
 import * as firebase from 'firebase';
 
 export class AuthService {
-  token:string;
+  token: string;
 
   signupUser(email: string, pwd: string) {
     firebase.auth().createUserWithEmailAndPassword(email, pwd)
       .then(
-        ()=> alert('Logged In Successfully!')
+        () => alert('Logged In Successfully!')
         //() => console.log('signup done !')
       )
       .catch(
-        error =>{
-          console.error('Error signing up:'+ JSON.stringify(error));
+        error => {
+          console.error('Error signing up:' + JSON.stringify(error));
           alert('Register Failed!');
         }
       );
@@ -27,16 +27,15 @@ export class AuthService {
           //dknote 255: get token and save
           firebase.auth().currentUser.getToken()
             .then(
-              (token:string)=>this.token = token
-            )
+              (token: string) => this.token = token
+            );
         }
       )
       .catch(
         error => {
-          console.error('Error signining in:'+ JSON.stringify(error));
+          console.error('Error signining in:' + JSON.stringify(error));
           alert('Sign In Failed!');
         }
-
       );
   }
 
@@ -47,9 +46,14 @@ export class AuthService {
       ".write": "auth != null"
     }
    */
+
   // step2: save token for future calls when sign in
-  getToken(){
+  getToken() {
     return this.token;
   }
 
+  // dknote 256: show/hide some buttons based on authentication
+  isAuthenicated() {
+    return this.token != null;
+  }
 }
