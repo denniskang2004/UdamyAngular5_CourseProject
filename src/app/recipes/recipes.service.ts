@@ -70,4 +70,14 @@ export class RecipesService{
   public storeRecipes(){
     return this.http.put('https://recipes-8f81a.firebaseio.com/data.json', this.recipes);
   }
+
+  // dknote 245: fetch recipes from firebase
+  public fetchRecipes(){
+    return this.http.get('https://recipes-8f81a.firebaseio.com/data.json');
+  }
+
+  public setRecipes(newrecipes:Recipe[]){
+    this.recipes = newrecipes;
+    this.recipeChanged.next(this.recipes.slice());
+  }
 }
