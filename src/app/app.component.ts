@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {appLogging} from './server/service/logging.service';
+import * as firebase from 'firebase';
 
 // dknote: this is the root component (rootcomponent)
 @Component({
@@ -21,6 +22,16 @@ export class AppComponent implements OnInit{
   ngOnInit(){
     this.loger.setName('appComp');
     this.loger.logStatus('AppComponent ngOnInit');
+
+
+    // dknote 251: set up firebase SDK and account
+    // turn on the authentication method "email/pwd"
+    firebase.initializeApp(
+      {
+        apiKey: "AIzaSyBLCqzzvvTlzg2i9maRyQCZ86O0re2-BXU",
+        authDomain: "recipes-8f81a.firebaseapp.com"
+      }
+    )
   }
   onSelectFeature(feature:string){
     this.featureSelected = feature;
