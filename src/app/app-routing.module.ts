@@ -19,15 +19,16 @@ import {FormDemoComponent} from './server/form-demo/form-demo.component';
 import {FormDemoReactiveComponent} from './server/form-demo-reactive/form-demo-reactive.component';
 import {SignupComponent} from './auth/signup/signup.component';
 import {SigninComponent} from './auth/signin/signin.component';
+import {AuthGuardService2} from './auth/auth-guard.service';
 
 // dknote 114: add routes/routing
 const appRoutes: Routes = [
   // dknote 143: below are for projects
   {
     path: 'recipes', component: RecipesComponent, children: [
-      {path: 'new', component: RecipeEditComponent},
+      {path: 'new', component: RecipeEditComponent, canActivate:[AuthGuardService2]},
       {path: ':id', component: RecipeDetailComponent}, //dknote 148: add children routes for recipes
-      {path: ':id/edit', component: RecipeEditComponent},
+      {path: ':id/edit', component: RecipeEditComponent, canActivate:[AuthGuardService2]},
       {path: '**', component: NoSelectComponent}
     ]
   },

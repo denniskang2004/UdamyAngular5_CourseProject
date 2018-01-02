@@ -43,6 +43,7 @@ import {HttpModule} from '@angular/http';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import {AuthService} from './auth/auth.service';
+import {AuthGuardService2} from './auth/auth-guard.service';
 
 
 
@@ -101,7 +102,8 @@ import {AuthService} from './auth/auth.service';
     AuthGuardService, // dknote 134, dknote 135: protect route using guard
     UserResolverService,
     ObsHelperService, //dknote 163: use ReactiveX Subject (both Observable and Observer)
-    AuthService //dknote 252: set up firebase authen
+    AuthService ,//dknote 252: set up firebase authen
+    AuthGuardService2
   ],
   bootstrap: [AppComponent]
 })
