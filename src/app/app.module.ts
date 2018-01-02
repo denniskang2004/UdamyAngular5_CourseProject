@@ -39,6 +39,8 @@ import { SigninComponent } from './auth/signin/signin.component';
 import {AuthService} from './auth/auth.service';
 import {AuthGuardService2} from './auth/auth-guard.service';
 import {RecipesModule} from './recipes/recipes.module';
+import {AppDropdownDirective} from './shared/app-dropdown.directive';
+import {SharedModule} from './shared/shared.module';
 
 
 
@@ -87,7 +89,8 @@ import {RecipesModule} from './recipes/recipes.module';
     // RouterModule.forRoot(appRoutes) //dknote 132: separate to another module for routing
     ReactiveFormsModule ,// dknote 187: set up reactive form //dknote 265
     AppRoutingModule, //dknote 132: import routings
-    RecipesModule
+    RecipesModule,
+    SharedModule
   ],
   // dknote 101: add to appModule to make available to whole app, even to service
   providers: [

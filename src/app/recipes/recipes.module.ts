@@ -8,6 +8,7 @@ import {AppDropdownDirective} from '../shared/app-dropdown.directive';
 import {CommonModule} from '@angular/common';
 import {RecipesRoutingModule} from './recipes-routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
+import {SharedModule} from '../shared/shared.module';
 
 
 //dknote 265: create feature module
@@ -18,12 +19,13 @@ import {ReactiveFormsModule} from '@angular/forms';
     RecipeDetailComponent,
     RecipeItemComponent,
     RecipeListComponent,
-    AppDropdownDirective
+    // AppDropdownDirective // dknote 268: shared module
   ],
   imports:[
     CommonModule,//needed for feature module
     ReactiveFormsModule,
-    RecipesRoutingModule
+    RecipesRoutingModule,
+    SharedModule
   ],
   providers:[
 
