@@ -2,7 +2,7 @@ import {Recipe} from './recipe.model';
 import {EventEmitter, Injectable} from '@angular/core';
 import {Ingredient} from '../shared/ingredient.model';
 import {Subject} from 'rxjs/Subject';
-import {Http} from '@angular/http';
+import {Http, Response} from '@angular/http';
 
 @Injectable()
 export class RecipesService{
@@ -73,7 +73,25 @@ export class RecipesService{
 
   // dknote 245: fetch recipes from firebase
   public fetchRecipes(){
-    return this.http.get('https://recipes-8f81a.firebaseio.com/data.json');
+    return this.http.get('https://recipes-8f81a.firebaseio.com/data.json')
+      .map(
+        (reponse:Response)=>{
+          const recipes:Recipe[] = reponse.json();
+          for(let rcp of recipes){
+            if(!rcp['ingredients']){
+              rcp['ingredients'] = [];//dknote: preprocess reponse by adding missing property
+            }
+          }
+          return recipes;
+        }
+      )
+      .subscribe(
+        (recipes:Recipe[])=>{
+          const recipesFetched = recipes;
+          this.setRecipes(recipesFetched);
+          console.log(recipesFetched);
+        }
+      )
   }
 
   public setRecipes(newrecipes:Recipe[]){

@@ -33,13 +33,17 @@ export class HeaderComponent implements OnInit {
 
   //dknote 245: use http to fetch data.
   onFetchData(){
-    this.recipeService.fetchRecipes()
-      .subscribe(
-        (reponse:Response)=>{
-          const recipesFetched = reponse.json();
-          this.recipeService.setRecipes(recipesFetched);
-          console.log(recipesFetched);
-        }
-      )
+
+    // dknote 245: push below to service
+    // this.recipeService.fetchRecipes()
+    //   .subscribe(
+    //     (reponse:Response)=>{
+    //       const recipesFetched = reponse.json();
+    //       this.recipeService.setRecipes(recipesFetched);
+    //       console.log(recipesFetched);
+    //     }
+    //   )
+    this.recipeService.fetchRecipes();
+
   }
 }
