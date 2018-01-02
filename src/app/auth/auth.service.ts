@@ -56,4 +56,10 @@ export class AuthService {
   isAuthenicated() {
     return this.token != null;
   }
+
+  // dknote 257: logout button
+  logOut(){
+    firebase.auth().signOut();
+    this.token = null;
+  }
 }

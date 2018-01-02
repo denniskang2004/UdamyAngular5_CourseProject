@@ -40,6 +40,11 @@
               <li><a (click)="onFetchData()">Fetch Data</a></li>
           </ul>
         </li>
+        <li
+          routerLinkActive="active"
+          *ngIf="authService.isAuthenicated()"
+          style="cursor: pointer"
+        ><a (click)="onLogout()">Logout</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li appDropdown class="dropdown">
