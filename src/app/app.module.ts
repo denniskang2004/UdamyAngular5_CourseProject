@@ -7,17 +7,12 @@ import {serverComponent} from './server/server.component';
 import {ServersComponent} from './servers/servers.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
-import { RecipesComponent } from './recipes/recipes.component';
-import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
-import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
-import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import {BasicHightlightDirective} from './server/directive/basic-hightlight.directive';
 import { BetterHightlightDirective } from './server/directive/better-hightlight.directive';
 import { ResponsiveHighlightDirective } from './server/directive/responsive-highlight.directive';
 import { UnlessDirective } from './server/directive/unless.directive';
-import {AppDropdownDirective} from './shared/app-dropdown.directive';
 import {AccountService} from './server/service/account.service';
 import {appLogging} from './server/service/logging.service';
 import {AbcComponent} from './servers/abc.component';
@@ -34,7 +29,6 @@ import {AuthGuardService} from './auth-guard.service';
 import { NotPermittedComponent } from './shared/not-permitted/not-permitted.component';
 import {UserResolverService} from './server/userdemo/user/user-resolver.service';
 import {NoSelectComponent} from './recipes/recipe-detail/no-select/no-select.component';
-import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { ObsDemoComponent } from './server/obs-demo/obs-demo.component';
 import {ObsHelperService} from './server/obs-demo/obs-helper.service';
 import { FormDemoComponent } from './server/form-demo/form-demo.component';
@@ -44,6 +38,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import {AuthService} from './auth/auth.service';
 import {AuthGuardService2} from './auth/auth-guard.service';
+import {RecipesModule} from './recipes/recipes.module';
 
 
 
@@ -55,17 +50,17 @@ import {AuthGuardService2} from './auth/auth-guard.service';
     serverComponent,
     ServersComponent,
     HeaderComponent,
-    RecipesComponent,
-    RecipeListComponent,
-    RecipeItemComponent,
-    RecipeDetailComponent,
+    // RecipesComponent, //dknote 265: move to feature module
+    // RecipeListComponent,//dknote 265: move to feature module
+    // RecipeItemComponent,//dknote 265: move to feature module
+    // RecipeDetailComponent,//dknote 265: move to feature module
     ShoppingListComponent,
     ShoppingEditComponent, // register here
     BasicHightlightDirective,
     BetterHightlightDirective,
     ResponsiveHighlightDirective,
     UnlessDirective, // course demo directive
-    AppDropdownDirective,
+    // AppDropdownDirective,//dknote 265: move to feature module
     AbcComponent,
     UserdemoComponent,
     HomedemoComponent,
@@ -75,7 +70,7 @@ import {AuthGuardService2} from './auth/auth-guard.service';
     PageNotFoundComponent,
     NotPermittedComponent,
     NoSelectComponent,
-    RecipeEditComponent,
+    //RecipeEditComponent,//dknote 265: move to feature module
     ObsDemoComponent,
     FormDemoComponent,
     FormDemoReactiveComponent,
@@ -90,8 +85,9 @@ import {AuthGuardService2} from './auth/auth-guard.service';
 
     // dknote 114: register routes
     // RouterModule.forRoot(appRoutes) //dknote 132: separate to another module for routing
+    ReactiveFormsModule ,// dknote 187: set up reactive form //dknote 265
     AppRoutingModule, //dknote 132: import routings
-    ReactiveFormsModule // dknote 187: set up reactive form
+    RecipesModule
   ],
   // dknote 101: add to appModule to make available to whole app, even to service
   providers: [

@@ -18,7 +18,7 @@ export class AuthService {
   }
 
   signinUser(email: string, psw: string) {
-    firebase.auth().signInAndRetrieveDataWithEmailAndPassword(email, psw)
+    firebase.auth().signInWithEmailAndPassword(email, psw)
       .then(
         response => {
           //console.log(response)
