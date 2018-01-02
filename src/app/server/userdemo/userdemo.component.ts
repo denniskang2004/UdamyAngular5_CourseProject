@@ -76,4 +76,16 @@ export class UserdemoComponent implements OnInit, OnDestroy {
     )
   }
 
+  //dknote 237: override firebase using put
+  onOverrideUsers(){
+    this.userService.overrideUser(this.users).subscribe(
+      (response)=>{
+        console.log(response)
+      },
+      (error)=>{
+        console.log(error)
+      }
+    )
+  }
+
 }

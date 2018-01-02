@@ -23,4 +23,8 @@ export class UserService{
     return this.httpService.get(this.URL);
   }
 
+  //dknote 237: override using put
+  overrideUser(users:any[]){
+    return this.httpService.put(this.URL, users);
+  }
 }
