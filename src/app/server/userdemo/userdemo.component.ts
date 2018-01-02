@@ -65,10 +65,10 @@ export class UserdemoComponent implements OnInit, OnDestroy {
   //dknote 236: http service GET
   onGetUser(){
     this.userService.getUser().subscribe(
-      (response: Response )=>{
+      (data: any[])=>{
         //console.log(response)
-        const data = response.json();//dknote 236: convert to java object
-        console.log(data);
+        //const data = response.json();//dknote 236: convert to java object
+        console.log(data); // dknote 238: service has converted it.
       },
       (error)=>{
         console.log(error)

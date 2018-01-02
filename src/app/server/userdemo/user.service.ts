@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Headers, Http} from '@angular/http';
+import {Headers, Http, Response} from '@angular/http';
 
 
 //dknote 234: used for Http service
@@ -20,7 +20,13 @@ export class UserService{
   }
 
   getUser(){
-    return this.httpService.get(this.URL);
+    return this.httpService.get(this.URL)
+      .map(
+        (response:Response)=>{
+          const data = response.json(); // dknote 238: convert in service level instead of component
+          return data;
+        }
+      );
   }
 
   //dknote 237: override using put
