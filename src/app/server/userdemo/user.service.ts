@@ -24,6 +24,9 @@ export class UserService{
       .map(
         (response:Response)=>{
           const data = response.json(); // dknote 238: convert in service level instead of component
+          for(const usr of data){
+            usr.name = "FETCHED_"+usr.name; //dknote 239: demo of map again
+          }
           return data;
         }
       );
