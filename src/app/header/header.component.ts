@@ -1,4 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {RecipesService} from '../recipes/recipes.service';
+import {Response} from '@angular/http';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +11,7 @@ export class HeaderComponent implements OnInit {
   // dknote 77: make output to app.component.html
   // @Output() selectedFeature = new EventEmitter<string>();// dknote 143: comment to use angular route
 
-  constructor() { }
+  constructor(private recipeService:RecipesService) { }
 
   // dknote 143: comment to use angular route
   // selectFeature(feature:string){
@@ -18,4 +20,17 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSaveData(){
+    this.recipeService.storeRecipes().subscribe(
+      (reponse:Response)=>{
+        console.log(reponse);
+      },
+      (error)=>{
+        console.error(error);
+      }
+    );
+  }
+  onFetchData(){
+
+  }
 }

@@ -1,12 +1,17 @@
 import {Recipe} from './recipe.model';
-import {EventEmitter} from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {Ingredient} from '../shared/ingredient.model';
 import {Subject} from 'rxjs/Subject';
+import {Http} from '@angular/http';
 
+@Injectable()
 export class RecipesService{
   recipeSelected = new EventEmitter<Recipe>(); // dknote 106: add an eventEmitter to communicate across component
   recipeChanged = new Subject<Recipe[]>();
 
+  constructor(private http:Http){
+
+  }
   private recipes: Recipe[] = [
     new Recipe(
       'Grilled Mushroom',
@@ -59,5 +64,10 @@ export class RecipesService{
   public deleteRecipe(index:number){
     this.recipes.splice(index,1);
     this.recipeChanged.next(this.recipes.slice());
+  }
+
+  // dknote 244: save recipes to firebase
+  public storeRecipes(){
+    return this.http.put('https://recipes-8f81a.firebaseio.com/data.json', this.recipes);
   }
 }
