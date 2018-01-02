@@ -3,13 +3,15 @@ import {EventEmitter, Injectable} from '@angular/core';
 import {Ingredient} from '../shared/ingredient.model';
 import {Subject} from 'rxjs/Subject';
 import {Http, Response} from '@angular/http';
+import {AuthService} from '../auth/auth.service';
 
 @Injectable()
 export class RecipesService{
   recipeSelected = new EventEmitter<Recipe>(); // dknote 106: add an eventEmitter to communicate across component
   recipeChanged = new Subject<Recipe[]>();
 
-  constructor(private http:Http){
+  constructor(private http:Http,
+              private authService:AuthService){
 
   }
   private recipes: Recipe[] = [
@@ -68,12 +70,17 @@ export class RecipesService{
 
   // dknote 244: save recipes to firebase
   public storeRecipes(){
-    return this.http.put('https://recipes-8f81a.firebaseio.com/data.json', this.recipes);
+    const token = this.authService.getToken();
+    return this.http.put(
+      'https://recipes-8f81a.firebaseio.com/data.json?auth=' + token,
+      this.recipes);
   }
 
   // dknote 245: fetch recipes from firebase
   public fetchRecipes(){
-    return this.http.get('https://recipes-8f81a.firebaseio.com/data.json')
+    const token = this.authService.getToken();
+    return this.http.get(
+      'https://recipes-8f81a.firebaseio.com/data.json?auth='+token)
       .map(
         (reponse:Response)=>{
           const recipes:Recipe[] = reponse.json();
@@ -89,7 +96,12 @@ export class RecipesService{
         (recipes:Recipe[])=>{
           const recipesFetched = recipes;
           this.setRecipes(recipesFetched);
-          console.log(recipesFetched);
+          alert('Recipes fetched successfully!');
+          //console.log(recipesFetched);
+        },
+        (error)=>{
+          console.log(error);
+          alert('Fetch failed! ['+error.statusText + ']');
         }
       )
   }
