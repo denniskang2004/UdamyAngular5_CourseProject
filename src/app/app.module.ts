@@ -15,32 +15,22 @@ import { ResponsiveHighlightDirective } from './server/directive/responsive-high
 import { UnlessDirective } from './server/directive/unless.directive';
 import {AccountService} from './server/service/account.service';
 import {appLogging} from './server/service/logging.service';
-import {AbcComponent} from './servers/abc.component';
 import {RecipesService} from './recipes/recipes.service';
 import {ShoppingListService} from './shopping-list/shopping-list.service';
-import { UserdemoComponent } from './server/userdemo/userdemo.component';
-import { HomedemoComponent } from './server/homedemo/homedemo.component';
-import { InformationComponent } from './servers/information/information.component';
-import { UserComponent } from './server/userdemo/user/user.component';
-import { UserEditComponent } from './server/userdemo/user-edit/user-edit.component';
-import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 import {AppRoutingModule} from './app-routing.module';
 import {AuthGuardService} from './auth-guard.service';
-import { NotPermittedComponent } from './shared/not-permitted/not-permitted.component';
 import {UserResolverService} from './server/userdemo/user/user-resolver.service';
-import {NoSelectComponent} from './recipes/recipe-detail/no-select/no-select.component';
-import { ObsDemoComponent } from './server/obs-demo/obs-demo.component';
 import {ObsHelperService} from './server/obs-demo/obs-helper.service';
-import { FormDemoComponent } from './server/form-demo/form-demo.component';
-import { FormDemoReactiveComponent } from './server/form-demo-reactive/form-demo-reactive.component';
 import {HttpModule} from '@angular/http';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import {AuthService} from './auth/auth.service';
 import {AuthGuardService2} from './auth/auth-guard.service';
 import {RecipesModule} from './recipes/recipes.module';
-import {AppDropdownDirective} from './shared/app-dropdown.directive';
 import {SharedModule} from './shared/shared.module';
+import {ServersModule} from './servers/servers.module';
+import {AbcComponent} from './servers/abc.component';
+import {AuthModule} from './auth/auth.module';
 
 
 
@@ -62,22 +52,11 @@ import {SharedModule} from './shared/shared.module';
     BetterHightlightDirective,
     ResponsiveHighlightDirective,
     UnlessDirective, // course demo directive
-    // AppDropdownDirective,//dknote 265: move to feature module
     AbcComponent,
-    UserdemoComponent,
-    HomedemoComponent,
-    InformationComponent,
-    UserComponent,
-    UserEditComponent,
-    PageNotFoundComponent,
-    NotPermittedComponent,
-    NoSelectComponent,
+    // AppDropdownDirective,//dknote 265: move to feature module
     //RecipeEditComponent,//dknote 265: move to feature module
-    ObsDemoComponent,
-    FormDemoComponent,
-    FormDemoReactiveComponent,
-    SignupComponent,
-    SigninComponent
+    // SignupComponent,
+    // SigninComponent
 
   ],
   imports: [
@@ -90,7 +69,9 @@ import {SharedModule} from './shared/shared.module';
     ReactiveFormsModule ,// dknote 187: set up reactive form //dknote 265
     AppRoutingModule, //dknote 132: import routings
     RecipesModule,
-    SharedModule
+    SharedModule,
+    ServersModule,
+    AuthModule
   ],
   // dknote 101: add to appModule to make available to whole app, even to service
   providers: [

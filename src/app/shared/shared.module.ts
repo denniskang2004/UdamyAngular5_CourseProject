@@ -5,13 +5,13 @@ import {CommonModule} from '@angular/common';
 
 @NgModule({
   declarations:[
-    AppDropdownDirective
+    AppDropdownDirective //dknote: by default, anything declared only available to this module, unless you export out.
   ],
   imports:[
     CommonModule
   ],
   exports:[
-    AppDropdownDirective
+    AppDropdownDirective // dknote: to make it available to other modules, need export
   ]
 })
 

@@ -24,27 +24,7 @@ const appRoutes: Routes = [
   {path: 'sign-up',component:SignupComponent},
   {path: 'sign-in',component:SigninComponent},
   {path: 'home', component: HomedemoComponent},
-  {path: 'servers', component: ServersComponent},
 
-  // dknote: below are for course demo
-  // dknote 134, dknote 135: protect routes using CanActivate
-  {
-    path: 'users',
-    /*canActivate:[AuthGuardService],
-    canActivateChild:[AuthGuardService],*/
-    component: UserdemoComponent, children: [
-      {path: ':id/:name', component: UserComponent, resolve: {userResolver: UserResolverService}},// dknote 127: nested route
-      {path: ':id/:name/edit', component: UserEditComponent} //dknote 128
-    ]
-  },
-  // {path:'users/:id/:name',component:UserComponent}, // dknote 120: pass parameter to route
-  {path: 'servers/info', component: InformationComponent}, // local:4200/servers/users   // dknote 119: relative route in programming
-  {path: 'not-permitted', component: NotPermittedComponent},
-  {path: 'not-found', component: PageNotFoundComponent, data: {message: 'page not found message here static passed'}}, //dknote 130: define page not found //// dknote 138: get static data from route config
-  {path: 'obs', component: ObsDemoComponent},
-  {path: 'forms', component: FormDemoComponent},
-  {path: 'forms-reactive', component: FormDemoReactiveComponent},
-  //{path: '**', redirectTo: 'not-found'}//dknote 130: put wildcard ** in last route declaration, redirect to this page
 ];
 
 // dknote 132: outsource configuratoin to this separate module
