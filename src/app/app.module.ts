@@ -40,6 +40,8 @@ import {ObsHelperService} from './server/obs-demo/obs-helper.service';
 import { FormDemoComponent } from './server/form-demo/form-demo.component';
 import { FormDemoReactiveComponent } from './server/form-demo-reactive/form-demo-reactive.component';
 import {HttpModule} from '@angular/http';
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
 
 
 
@@ -74,7 +76,9 @@ import {HttpModule} from '@angular/http';
     RecipeEditComponent,
     ObsDemoComponent,
     FormDemoComponent,
-    FormDemoReactiveComponent
+    FormDemoReactiveComponent,
+    SignupComponent,
+    SigninComponent
 
   ],
   imports: [
