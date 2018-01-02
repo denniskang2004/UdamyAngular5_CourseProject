@@ -18,6 +18,7 @@ import {ObsDemoComponent} from './server/obs-demo/obs-demo.component';
 import {FormDemoComponent} from './server/form-demo/form-demo.component';
 import {FormDemoReactiveComponent} from './server/form-demo-reactive/form-demo-reactive.component';
 import {SignupComponent} from './auth/signup/signup.component';
+import {SigninComponent} from './auth/signin/signin.component';
 
 // dknote 114: add routes/routing
 const appRoutes: Routes = [
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
   },
   {path: 'shopping-list', component: ShoppingListComponent},
   {path: 'sign-up',component:SignupComponent},
+  {path: 'sign-in',component:SigninComponent},
   {path: 'home', component: HomedemoComponent},
   {path: 'servers', component: ServersComponent},
 

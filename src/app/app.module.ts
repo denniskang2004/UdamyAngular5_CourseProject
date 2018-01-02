@@ -42,6 +42,7 @@ import { FormDemoReactiveComponent } from './server/form-demo-reactive/form-demo
 import {HttpModule} from '@angular/http';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
+import {AuthService} from './auth/auth.service';
 
 
 
@@ -99,7 +100,8 @@ import { SigninComponent } from './auth/signin/signin.component';
     appLogging, //demo only
     AuthGuardService, // dknote 134, dknote 135: protect route using guard
     UserResolverService,
-    ObsHelperService //dknote 163: use ReactiveX Subject (both Observable and Observer)
+    ObsHelperService, //dknote 163: use ReactiveX Subject (both Observable and Observer)
+    AuthService //dknote 252: set up firebase authen
   ],
   bootstrap: [AppComponent]
 })
